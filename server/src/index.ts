@@ -1,10 +1,9 @@
 import express from "express";
+import { getWeatherData } from "./controller/weather.controller";
 
 const app = express();
 
-app.get("/", (req, res) => {
-	return res.send("gabriel-dp");
-});
+app.get("/weather", getWeatherData);
 
 const port = 5000;
 app.listen(port, () => {
