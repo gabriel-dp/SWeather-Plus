@@ -1,0 +1,9 @@
+{
+	"name": "sweather-plus",
+	"version": "1.0.0",
+	"scripts": {
+		"dev:server": "cd server && npm start"
+	},
+	"license": "GPL-3.0"
+}
+
