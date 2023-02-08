@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import checkQueries from "../utils/queryValidations";
+import checkQueries from "../utils/checkQueries";
 import requestDailyData from "../utils/requestUtils/dailyRequest";
 
 export async function getDailyData(req: Request, res: Response) {

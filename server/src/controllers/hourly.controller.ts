@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import checkQueries from "../utils/queryValidations";
+import checkQueries from "../utils/checkQueries";
 import requestHourlyData from "../utils/requestUtils/hourlyRequest";
 
 export async function getHourlyData(req: Request, res: Response) {
