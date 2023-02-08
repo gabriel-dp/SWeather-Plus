@@ -11,7 +11,6 @@ export default function checkQueries(receivedQuery: object, expectedQuery: strin
 	}
 
 	expectedQuery.forEach((value) => {
-		console.log(value);
 		if (received.includes(value)) {
 			expected = removeElement(value, expected);
 			received = removeElement(value, received);
