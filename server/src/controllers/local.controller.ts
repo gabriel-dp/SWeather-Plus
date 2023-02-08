@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import checkQueries from "../utils/checkQueries";
 import { requestLocalDataByCityName, requestLocalDataByCoords } from "../utils/requestUtils/requestLocalData";
 
-export async function getLocalDataByCityName(req: Request, res: Response) {
+async function getLocalDataByCityName(req: Request, res: Response) {
 	try {
 		checkQueries(req.query, ["name"]);
 		const { name } = req.query;
@@ -16,7 +16,7 @@ export async function getLocalDataByCityName(req: Request, res: Response) {
 	}
 }
 
-export async function getLocalDataByCoords(req: Request, res: Response) {
+async function getLocalDataByCoords(req: Request, res: Response) {
 	try {
 		checkQueries(req.query, ["lat", "lon"]);
 		const { lat, lon } = req.query;
@@ -27,3 +27,5 @@ export async function getLocalDataByCoords(req: Request, res: Response) {
 		return res.status(500).send(`GET /local/coords/ - ${error}`);
 	}
 }
+
+export default { getLocalDataByCityName, getLocalDataByCoords };
