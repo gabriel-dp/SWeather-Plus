@@ -1,22 +1,24 @@
+import { createContext } from "react";
+
 export type hourlyValues = {
-	temperature: number;
-	humidity: number;
-	windSpeed: number;
-	precipitationType: number;
-	precipitationIntensity: number;
-	rainIntensity: number;
-	snowIntensity: number;
-	freezingRainIntensity: number;
-	sleetIntensity: number;
-	cloudCover: number;
-	windDirection: number;
-	precipitationProbability: number;
+	startTime: string;
+	values: {
+		temperature: number;
+		humidity: number;
+		windSpeed: number;
+		precipitationType: number;
+		precipitationIntensity: number;
+		rainIntensity: number;
+		snowIntensity: number;
+		freezingRainIntensity: number;
+		sleetIntensity: number;
+		cloudCover: number;
+		windDirection: number;
+		precipitationProbability: number;
+	};
 };
 
-export type hourlyType = {
-	startTime: string;
-	values: hourlyValues[];
-};
+export type hourlyType = hourlyValues[];
 
 export type dailyType = {
 	moonPhase: number;
@@ -39,3 +41,13 @@ export type localType = {
 	state?: string;
 	local_names?: object;
 };
+
+export interface ILocalWeatherDataContext {
+	localData: localType;
+	weatherData: weatherType;
+}
+
+export const LocalWeatherDataContext = createContext<ILocalWeatherDataContext>({
+	localData: { status: false } as localType,
+	weatherData: { status: false } as weatherType,
+});
