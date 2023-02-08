@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { timeNow } from "../timeUtils";
-import { hourlyUrl } from "./requestUrl";
+import { hourlyUrl } from "./weatherRequestsUrls";
 
 export default function requestHourlyData(location: string, interval: number) {
 	const now = timeNow();

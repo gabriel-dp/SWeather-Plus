@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.tomorrow.io/v4/timelines";
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.TOMORROWIO_API_KEY;
 
 const HOURLY_FIELDS = [
 	"temperature", // Main data

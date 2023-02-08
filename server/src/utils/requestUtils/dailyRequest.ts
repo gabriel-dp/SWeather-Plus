@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { dailyUrl } from "./requestUrl";
+import { dailyUrl } from "./weatherRequestsUrls";
 
 export default function requestDailyData(location: string) {
 	return axios
