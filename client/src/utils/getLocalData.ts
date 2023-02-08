@@ -9,11 +9,19 @@ const localByCoordsUrl = (location: [number, number]) =>
 	`${BASE_URL}/local/coords/?lat=${location[0]}&lon=${location[1]}`;
 
 export async function getLocalDataByCity(name: string) {
-	const localData: localType = await fetchData(localByCityUrl(name), "Cannot get local");
-	return localData;
+	try {
+		const localData: localType = await fetchData(localByCityUrl(name), "Cannot get local");
+		return { ...localData, status: true };
+	} catch {
+		return { status: false } as localType;
+	}
 }
 
 export async function getLocalDataByCoords(location: [number, number]) {
-	const localData: localType = await fetchData(localByCoordsUrl(location), "Cannot get local");
-	return localData;
+	try {
+		const localData: localType = await fetchData(localByCoordsUrl(location), "Cannot get local");
+		return { ...localData, status: true };
+	} catch {
+		return { status: false } as localType;
+	}
 }

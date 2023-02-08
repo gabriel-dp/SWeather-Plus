@@ -24,7 +24,14 @@ export type dailyType = {
 	sunsetTime: string;
 };
 
+export type weatherType = {
+	status: boolean;
+	dailyData: dailyType;
+	hourlyData: hourlyType;
+};
+
 export type localType = {
+	status: boolean;
 	name: string;
 	lat: number;
 	lon: number;
