@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { LocalWeatherDataContext } from "../../utils/dataTypes";
+import { IntervalDataContext } from "../../utils/dataTypes";
 
 import { Background } from "./styles";
 
@@ -9,9 +9,12 @@ interface BackgroundProps {
 }
 
 export default function WeatherBackground(props: BackgroundProps) {
-	const { weatherData } = useContext(LocalWeatherDataContext);
+	const { interval } = useContext(IntervalDataContext);
 
-	console.log(weatherData);
-
-	return <Background>{props.children}</Background>;
+	return (
+		<Background>
+			{interval?.startTime}
+			{props.children}
+		</Background>
+	);
 }

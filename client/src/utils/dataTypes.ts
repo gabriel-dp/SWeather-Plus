@@ -42,12 +42,12 @@ export type localType = {
 	local_names?: object;
 };
 
-export interface ILocalWeatherDataContext {
-	localData: localType;
-	weatherData: weatherType;
+export interface IIntervalDataContext {
+	status: boolean;
+	interval?: hourlyValues;
+	day?: dailyType;
 }
 
-export const LocalWeatherDataContext = createContext<ILocalWeatherDataContext>({
-	localData: { status: false } as localType,
-	weatherData: { status: false } as weatherType,
+export const IntervalDataContext = createContext<IIntervalDataContext>({
+	status: false,
 });
