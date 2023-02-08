@@ -3,7 +3,7 @@ import axios from "axios";
 import { timeNow } from "../timeUtils";
 import { weatherUrl } from "./requestUrl";
 
-export default async function requestWeatherData(location: [number, number], interval: number) {
+export default async function requestWeatherData(location: string, interval: number) {
 	const now = timeNow();
 	const startTime = new Date(now.setHours(now.getHours() - interval));
 	const endTime = new Date(now.setHours(now.getHours() + interval * 2));
