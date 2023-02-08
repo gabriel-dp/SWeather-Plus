@@ -1,7 +1,10 @@
+import GlobalStyle from "./styles/globalStyle";
+
 export default function App() {
 	return (
-		<div>
+		<>
+			<GlobalStyle />
 			<p>gabriel-dp</p>
-		</div>
+		</>
 	);
 }
