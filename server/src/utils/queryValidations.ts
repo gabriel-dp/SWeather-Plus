@@ -1,6 +1,6 @@
 export default function checkQueries(receivedQuery: object, expectedQuery: string[]) {
 	let received = Object.keys(receivedQuery);
-	let expected = expectedQuery;
+	let expected = Array.from(expectedQuery);
 
 	function removeElement(element: string, array: string[]) {
 		const index = array.indexOf(element);
@@ -10,7 +10,8 @@ export default function checkQueries(receivedQuery: object, expectedQuery: strin
 		return array;
 	}
 
-	expectedQuery.every((value) => {
+	expectedQuery.forEach((value) => {
+		console.log(value);
 		if (received.includes(value)) {
 			expected = removeElement(value, expected);
 			received = removeElement(value, received);
