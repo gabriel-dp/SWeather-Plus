@@ -12,19 +12,26 @@ export const SearchContainer = styled.div`
 `;
 
 interface LocalContainerProps {
-	display: boolean;
+	hidden: boolean;
+	size: number;
 }
 
 export const LocalInfoContainer = styled.div<LocalContainerProps>`
 	width: 100%;
 	transition: all 0.5s ease-in-out;
-	height: ${(props) => (props.display ? "3.5rem" : "0")};
-	margin-bottom: ${(props) => (props.display ? "1.25rem" : "0")};
-	color: ${(props) => (props.display ? "#444" : "transparent")};
+	height: ${(props) => (props.hidden ? props.size : "0")}rem;
+	margin-bottom: ${(props) => (props.hidden ? "1rem" : "0")};
+	overflow: hidden;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	* {
+		color: #444;
+		transition: opacity 1s ease;
+		opacity: ${(props) => (props.hidden ? "1" : "0")};
+	}
 
 	p {
 		font-size: 1.5rem;

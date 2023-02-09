@@ -2,7 +2,8 @@ import { useState, useContext } from "react";
 import { FaSearch, FaMapMarkerAlt } from "react-icons/fa";
 
 import { DataContext, searchType } from "../../utils/dataTypes";
-import getGeolocationCoords from "../../utils/getGeolocaionCoords";
+import getGeolocationCoords from "../../utils/getGeolocationCoords";
+import CountryFlag from "../CountryFlag";
 
 import {
 	SearchContainer,
@@ -40,9 +41,9 @@ export default function LocationSearch(props: SearchProps) {
 
 	return (
 		<SearchContainer>
-			<LocalInfoContainer display={!!localData.name}>
+			<LocalInfoContainer hidden={localData.status} size={4}>
 				<p>{localData.name}</p>
-				<span>{localData.country}</span>
+				<CountryFlag country={localData.country} size={2} />
 			</LocalInfoContainer>
 			<InputContainer>
 				<SearchIconContainer>
