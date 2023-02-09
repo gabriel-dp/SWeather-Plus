@@ -59,7 +59,7 @@ export default function LocationSearch(props: SearchProps) {
 						onChange={(event) => handleInputChange(event.target.value)}
 					/>
 				</form>
-				<LocationButton onClick={() => handleGetLocation()}>
+				<LocationButton onClick={() => handleGetLocation()} aria-label="current-location">
 					<FaMapMarkerAlt />
 				</LocationButton>
 			</InputContainer>

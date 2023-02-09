@@ -16,12 +16,12 @@ export const CustomSlider = styled.input.attrs({
 	type: "range",
 })`
 	-webkit-appearance: none;
-	width: 80%;
-	max-width: 13rem;
+	width: min(100%, 15rem);
 	height: 0.25rem;
 	background-color: #ddd;
 	border-radius: 0.35rem;
 	margin: 1.5rem 0;
+
 	::-webkit-slider-thumb {
 		${thumbStyle}
 	}
