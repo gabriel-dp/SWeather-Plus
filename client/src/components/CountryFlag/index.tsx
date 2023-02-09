@@ -1,4 +1,4 @@
-import ImageComponent from "../ImageComponent";
+import ImageComponent from "@/components/ImageComponent";
 
 import { FlagContainer } from "./styles";
 

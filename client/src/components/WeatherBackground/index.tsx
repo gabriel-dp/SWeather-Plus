@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { DataContext } from "../../utils/dataTypes";
+import { DataContext } from "@/utils/dataTypes";
 
 import { Background } from "./styles";
 

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-import { localType, weatherType, searchType } from "../utils/dataTypes";
-import { getLocalDataByCity, getLocalDataByCoords } from "../utils/getLocalData";
-import { getWeatherData } from "../utils/getWeatherData";
+import { localType, weatherType, searchType } from "@/utils/dataTypes";
+import { getLocalDataByCity, getLocalDataByCoords } from "@/utils/getLocalData";
+import { getWeatherData } from "@/utils/getWeatherData";
 
 const resetLocal = { status: false } as localType;
 const resetWeather = { status: false } as weatherType;

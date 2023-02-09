@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { searchType } from "../../utils/dataTypes";
-import DataProvider from "../../components/DataProvider";
-import WeatherBackground from "../../components/WeatherBackground";
-import TimeSlider from "../../components/TimeSlider";
-import LocationSearch from "../../components/LocationSearch";
+import { searchType } from "@/utils/dataTypes";
+import DataProvider from "@/components/DataProvider";
+import WeatherBackground from "@/components/WeatherBackground";
+import TimeSlider from "@/components/TimeSlider";
+import LocationSearch from "@/components/LocationSearch";
 
 import { Screen } from "./styles";
 

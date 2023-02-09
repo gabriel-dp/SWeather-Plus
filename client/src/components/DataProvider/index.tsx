@@ -1,8 +1,8 @@
-import { DataContext, intervalType } from "../../utils/dataTypes";
-import useLocalWeather from "../../hooks/useLocalWeather";
+import useLocalWeather from "@/hooks/useLocalWeather";
+import { DataContext, intervalType, searchType } from "@/utils/dataTypes";
 
 interface ProviderProps {
-	search: string | [number, number];
+	search: searchType;
 	range: number;
 	interval: number;
 	children: React.ReactNode;

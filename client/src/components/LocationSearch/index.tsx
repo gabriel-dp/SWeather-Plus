@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { FaSearch, FaMapMarkerAlt } from "react-icons/fa";
 
-import { DataContext, searchType } from "../../utils/dataTypes";
-import getGeolocationCoords from "../../utils/getGeolocationCoords";
-import CountryFlag from "../CountryFlag";
+import { DataContext, searchType } from "@/utils/dataTypes";
+import getGeolocationCoords from "@/utils/getGeolocationCoords";
+import CountryFlag from "@/components/CountryFlag";
 
 import {
 	SearchContainer,
