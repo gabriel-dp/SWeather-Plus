@@ -11,10 +11,5 @@ interface BackgroundProps {
 export default function WeatherBackground(props: BackgroundProps) {
 	const { interval } = useContext(DataContext).intervalData;
 
-	return (
-		<Background>
-			{interval?.startTime}
-			{props.children}
-		</Background>
-	);
+	return <Background>{props.children}</Background>;
 }

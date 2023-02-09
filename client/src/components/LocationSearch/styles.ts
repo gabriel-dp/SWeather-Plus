@@ -18,21 +18,19 @@ interface LocalContainerProps {
 
 export const LocalInfoContainer = styled.div<LocalContainerProps>`
 	width: 100%;
-	transition: all 0.5s ease-in-out;
-	height: ${(props) => (props.hidden ? props.size : "0")}rem;
+	height: ${(props) => (props.hidden ? props.size + 0.25 : "0")}rem;
 	margin-bottom: ${(props) => (props.hidden ? "1rem" : "0")};
 	overflow: hidden;
+	transition: all 0.5s ease;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
-	* {
-		transition: opacity 1s ease;
-		opacity: ${(props) => (props.hidden ? "1" : "0")};
-	}
+	justify-content: space-between;
 
 	.city {
+		transition: opacity 1.5s ease;
+		opacity: ${(props) => (props.hidden ? "1" : "0")};
 		width: 100%;
 		text-align: center;
 
@@ -44,10 +42,6 @@ export const LocalInfoContainer = styled.div<LocalContainerProps>`
 			white-space: nowrap;
 			text-overflow: ellipsis;
 		}
-	}
-
-	span {
-		font-size: 1rem;
 	}
 `;
 
