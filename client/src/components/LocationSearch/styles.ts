@@ -51,12 +51,16 @@ export const LocalInfoContainer = styled.div<LocalContainerProps>`
 	}
 `;
 
+const INPUT_HEIGHT = 2.25;
+
 export const InputContainer = styled.div`
 	width: 100%;
-	height: 2.25rem;
+	height: ${INPUT_HEIGHT}rem;
 	border-radius: 3rem;
 	background-color: white;
 	overflow: hidden;
+
+	filter: drop-shadow(0 0 0.5rem #00000011);
 
 	position: relative;
 	display: flex;
@@ -73,6 +77,10 @@ export const SearchIconContainer = styled.div`
 	aspect-ratio: 1;
 	font-size: 0.85rem;
 	color: #666;
+	pointer-events: none;
+
+	position: absolute;
+	left: 0;
 
 	display: flex;
 	justify-content: center;
@@ -84,8 +92,12 @@ export const SearchInput = styled.input.attrs({
 })`
 	width: 100%;
 	height: 100%;
+	padding-left: ${INPUT_HEIGHT}rem;
+	padding-right: ${INPUT_HEIGHT + 0.5}rem;
 	background-color: transparent;
 	border: none;
+	text-overflow: ellipsis;
+	z-index: 2;
 `;
 
 export const LocationButton = styled.button`
@@ -94,6 +106,7 @@ export const LocationButton = styled.button`
 	border: none;
 	background-color: #666;
 	color: #fff;
+	border: 2px solid #fff;
 	border-radius: 3rem;
 	cursor: pointer;
 	transition: background 0.25s ease;
