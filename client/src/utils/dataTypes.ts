@@ -42,14 +42,20 @@ export type localType = {
 	local_names?: object;
 };
 
-export interface IIntervalDataContext {
+export type intervalType = {
 	status: boolean;
-	interval?: hourlyValues;
-	day?: dailyType;
+	interval: hourlyValues;
+	day: dailyType;
+};
+
+export interface IDataContext {
+	intervalData: intervalType;
+	localData: localType;
 }
 
-export const IntervalDataContext = createContext<IIntervalDataContext>({
-	status: false,
+export const DataContext = createContext<IDataContext>({
+	intervalData: { status: false } as intervalType,
+	localData: { status: false } as localType,
 });
 
 export type searchType = string | [number, number];

@@ -6,6 +6,28 @@ export const SearchContainer = styled.div`
 	border: 1px solid #ffffff;
 	border-radius: 1rem;
 	padding: 1.5rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+`;
+
+export const LocalInfoContainer = styled.div`
+	width: 100%;
+	color: #444;
+
+	p {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	span {
+		font-size: 1rem;
+	}
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 export const InputContainer = styled.div`

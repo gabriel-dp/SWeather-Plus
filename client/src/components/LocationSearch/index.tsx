@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
-import { SearchContainer, InputContainer, SearchInput } from "./styles";
+import { DataContext } from "../../utils/dataTypes";
+
+import { SearchContainer, LocalInfoContainer, InputContainer, SearchInput } from "./styles";
 
 interface SearchProps {
 	setCitySearch: React.Dispatch<React.SetStateAction<string | [number, number]>>;
@@ -16,10 +18,17 @@ export default function LocationSearch(props: SearchProps) {
 	function handleSubmitInput(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		props.setCitySearch(input);
+		setInput("");
 	}
+
+	const { localData } = useContext(DataContext);
 
 	return (
 		<SearchContainer>
+			<LocalInfoContainer>
+				<p>{localData.name}</p>
+				<span>{localData.country}</span>
+			</LocalInfoContainer>
 			<InputContainer>
 				<form onSubmit={(event) => handleSubmitInput(event)}>
 					<SearchInput

@@ -1,4 +1,4 @@
-import { IntervalDataContext } from "../../utils/dataTypes";
+import { DataContext, intervalType } from "../../utils/dataTypes";
 import useLocalWeather from "../../hooks/useLocalWeather";
 
 interface ProviderProps {
@@ -13,9 +13,14 @@ export default function DataProvider(props: ProviderProps) {
 
 	console.log(props, localData, weatherData);
 
-	const intervalData = weatherData.status
+	const intervalData: intervalType = weatherData.status
 		? { status: true, interval: weatherData.hourlyData[props.interval], day: weatherData.dailyData }
-		: { status: false };
+		: ({ status: false } as intervalType);
 
-	return <IntervalDataContext.Provider value={intervalData}>{props.children}</IntervalDataContext.Provider>;
+	const providerValue = {
+		localData: localData,
+		intervalData: intervalData,
+	};
+
+	return <DataContext.Provider value={providerValue}>{props.children}</DataContext.Provider>;
 }
