@@ -7,6 +7,11 @@ interface SliderProps {
 }
 
 function TimeSlider(props: SliderProps) {
+	function handleIntervalChange(event: React.ChangeEvent<HTMLInputElement>) {
+		const value = parseInt(event.target.value, 10);
+		props.setInterval(value);
+	}
+
 	return (
 		<CustomSlider
 			type="range"
@@ -14,7 +19,7 @@ function TimeSlider(props: SliderProps) {
 			max={props.range * 2}
 			value={props.interval}
 			step={1}
-			onChange={(event) => props.setInterval(parseInt(event.target.value, 10))}
+			onChange={(event) => handleIntervalChange(event)}
 			aria-label="time-slider"
 		/>
 	);

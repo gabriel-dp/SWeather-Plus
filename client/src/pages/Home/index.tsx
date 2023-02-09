@@ -1,38 +1,25 @@
-import { useEffect, useState } from "react";
+import { useState, useRef } from "react";
 
-import { IIntervalDataContext, IntervalDataContext } from "../../utils/dataTypes";
-import useLocalWeather from "../../hooks/useLocalWeather";
+import DataProvider from "../../components/DataProvider";
 import WeatherBackground from "../../components/WeatherBackground";
 import TimeSlider from "../../components/TimeSlider";
+import LocationSearch from "../../components/LocationSearch";
 
 import { Screen } from "./styles";
 
 export default function Home() {
 	const [range, setRange] = useState(5);
-	const [cityName, setCityName] = useState("porto Alegre");
-
 	const [interval, setInterval] = useState(range);
-	const [intervalData, setIntervalData] = useState<IIntervalDataContext>({ status: false });
-
-	const { localData, weatherData } = useLocalWeather(cityName, range);
-
-	useEffect(() => {
-		if (weatherData.status) {
-			setIntervalData({
-				status: true,
-				interval: weatherData.hourlyData[interval],
-				day: weatherData.dailyData,
-			});
-		}
-	}, [weatherData, interval]);
+	const [citySearch, setCitySearch] = useState<string | [number, number]>("");
 
 	return (
 		<Screen>
-			<IntervalDataContext.Provider value={intervalData}>
+			<DataProvider search={citySearch} range={range} interval={interval}>
 				<WeatherBackground>
 					<TimeSlider range={range} interval={interval} setInterval={setInterval} />
+					<LocationSearch setCitySearch={setCitySearch} />
 				</WeatherBackground>
-			</IntervalDataContext.Provider>
+			</DataProvider>
 		</Screen>
 	);
 }

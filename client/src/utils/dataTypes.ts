@@ -51,3 +51,5 @@ export interface IIntervalDataContext {
 export const IntervalDataContext = createContext<IIntervalDataContext>({
 	status: false,
 });
+
+export type searchType = string | [number, number];
