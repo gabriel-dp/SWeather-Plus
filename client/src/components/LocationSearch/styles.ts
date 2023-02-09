@@ -37,18 +37,44 @@ export const InputContainer = styled.div`
 	background-color: white;
 	overflow: hidden;
 
+	position: relative;
+	display: flex;
+	flex-direction: row;
+
 	form {
 		width: 100%;
 		height: 100%;
 	}
 `;
 
+export const SearchIconContainer = styled.div`
+	height: 100%;
+	aspect-ratio: 1;
+	font-size: 0.85rem;
+	color: #333;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
 export const SearchInput = styled.input.attrs({
 	type: "text",
 })`
-	width: 100%;
+	flex-grow: 1;
 	height: 100%;
 	background-color: transparent;
 	border: none;
-	padding: 0 1.5rem;
+`;
+
+export const LocationButton = styled.button`
+	aspect-ratio: 1;
+	height: 100%;
+	border: none;
+	background-color: #666;
+	color: #fff;
+	border-radius: 3rem;
+
+	position: absolute;
+	right: 0;
 `;

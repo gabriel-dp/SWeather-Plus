@@ -1,5 +1,6 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
+import { searchType } from "../../utils/dataTypes";
 import DataProvider from "../../components/DataProvider";
 import WeatherBackground from "../../components/WeatherBackground";
 import TimeSlider from "../../components/TimeSlider";
@@ -10,14 +11,14 @@ import { Screen } from "./styles";
 export default function Home() {
 	const [range, setRange] = useState(5);
 	const [interval, setInterval] = useState(range);
-	const [citySearch, setCitySearch] = useState<string | [number, number]>("");
+	const [search, setSearch] = useState<searchType>("");
 
 	return (
 		<Screen>
-			<DataProvider search={citySearch} range={range} interval={interval}>
+			<DataProvider search={search} range={range} interval={interval}>
 				<WeatherBackground>
 					<TimeSlider range={range} interval={interval} setInterval={setInterval} />
-					<LocationSearch setCitySearch={setCitySearch} />
+					<LocationSearch setSearch={setSearch} />
 				</WeatherBackground>
 			</DataProvider>
 		</Screen>
