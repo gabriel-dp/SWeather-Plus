@@ -9,12 +9,22 @@ export const SearchContainer = styled.div`
 
 	display: flex;
 	flex-direction: column;
-	gap: 1.25rem;
 `;
 
-export const LocalInfoContainer = styled.div`
+interface LocalContainerProps {
+	display: boolean;
+}
+
+export const LocalInfoContainer = styled.div<LocalContainerProps>`
 	width: 100%;
-	color: #444;
+	transition: all 0.5s ease-in-out;
+	height: ${(props) => (props.display ? "3.5rem" : "0")};
+	margin-bottom: ${(props) => (props.display ? "1.25rem" : "0")};
+	color: ${(props) => (props.display ? "#444" : "transparent")};
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
 	p {
 		font-size: 1.5rem;
@@ -24,10 +34,6 @@ export const LocalInfoContainer = styled.div`
 	span {
 		font-size: 1rem;
 	}
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 `;
 
 export const InputContainer = styled.div`
@@ -42,7 +48,7 @@ export const InputContainer = styled.div`
 	flex-direction: row;
 
 	form {
-		width: 100%;
+		flex-grow: 1;
 		height: 100%;
 	}
 `;
@@ -61,7 +67,7 @@ export const SearchIconContainer = styled.div`
 export const SearchInput = styled.input.attrs({
 	type: "text",
 })`
-	flex-grow: 1;
+	width: 100%;
 	height: 100%;
 	background-color: transparent;
 	border: none;
@@ -74,7 +80,13 @@ export const LocationButton = styled.button`
 	background-color: #666;
 	color: #fff;
 	border-radius: 3rem;
+	cursor: pointer;
+	transition: background 0.25s ease;
 
 	position: absolute;
 	right: 0;
+
+	:hover {
+		background-color: #888;
+	}
 `;

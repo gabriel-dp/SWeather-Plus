@@ -40,9 +40,9 @@ export default function LocationSearch(props: SearchProps) {
 
 	return (
 		<SearchContainer>
-			<LocalInfoContainer>
-				<p>{localData.name ?? "-"}</p>
-				<span>{localData.country ?? "-"}</span>
+			<LocalInfoContainer display={!!localData.name}>
+				<p>{localData.name}</p>
+				<span>{localData.country}</span>
 			</LocalInfoContainer>
 			<InputContainer>
 				<SearchIconContainer>
