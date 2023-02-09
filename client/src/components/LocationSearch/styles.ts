@@ -28,14 +28,22 @@ export const LocalInfoContainer = styled.div<LocalContainerProps>`
 	align-items: center;
 
 	* {
-		color: #444;
 		transition: opacity 1s ease;
 		opacity: ${(props) => (props.hidden ? "1" : "0")};
 	}
 
-	p {
-		font-size: 1.5rem;
-		font-weight: bold;
+	.city {
+		width: 100%;
+		text-align: center;
+
+		p {
+			color: #444;
+			font-size: 1.5rem;
+			font-weight: bold;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
 	}
 
 	span {
@@ -64,7 +72,7 @@ export const SearchIconContainer = styled.div`
 	height: 100%;
 	aspect-ratio: 1;
 	font-size: 0.85rem;
-	color: #333;
+	color: #666;
 
 	display: flex;
 	justify-content: center;

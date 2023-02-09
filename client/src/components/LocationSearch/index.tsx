@@ -42,7 +42,9 @@ export default function LocationSearch(props: SearchProps) {
 	return (
 		<SearchContainer>
 			<LocalInfoContainer hidden={localData.status} size={4}>
-				<p>{localData.name}</p>
+				<div className="city">
+					<p>{localData.name}</p>
+				</div>
 				<CountryFlag country={localData.country} size={2} />
 			</LocalInfoContainer>
 			<InputContainer>
