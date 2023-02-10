@@ -48,14 +48,18 @@ export type intervalType = {
 	day: dailyType;
 };
 
+export type searchType = string | [number, number];
+
+export type unitsSystemType = "metric" | "imperial";
+
 export interface IDataContext {
 	intervalData: intervalType;
 	localData: localType;
+	unitSystem: unitsSystemType;
 }
 
 export const DataContext = createContext<IDataContext>({
 	intervalData: { status: false } as intervalType,
 	localData: { status: false } as localType,
+	unitSystem: "metric",
 });
-
-export type searchType = string | [number, number];
