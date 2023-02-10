@@ -5,7 +5,7 @@ interface ProviderProps {
 	search: searchType;
 	range?: number;
 	interval?: number;
-	unitsSystem: unitsSystemType;
+	unitsSystem?: unitsSystemType;
 	children: React.ReactNode;
 }
 
@@ -19,7 +19,7 @@ export default function DataProvider(props: ProviderProps) {
 	const providerValue = {
 		localData: localData,
 		intervalData: intervalData,
-		unitSystem: props.unitsSystem,
+		unitSystem: props.unitsSystem ?? "metric",
 	};
 
 	return <DataContext.Provider value={providerValue}>{props.children}</DataContext.Provider>;
