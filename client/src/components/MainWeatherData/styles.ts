@@ -26,10 +26,11 @@ export const DataText = styled.span<TextProps>`
 `;
 
 export const DataGroup = styled.div`
+	transition: all 1s ease;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
-	gap: 1rem;
+	column-gap: 1rem;
 `;
