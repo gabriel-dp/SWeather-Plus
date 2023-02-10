@@ -5,7 +5,7 @@ export const SearchContainer = styled.div`
 	background-color: #ffffffaa;
 	border: 1px solid #ffffff;
 	border-radius: 1rem;
-	padding: 1.5rem;
+	padding: 1rem;
 
 	display: flex;
 	flex-direction: column;
@@ -19,7 +19,7 @@ interface LocalContainerProps {
 export const LocalInfoContainer = styled.div<LocalContainerProps>`
 	width: 100%;
 	height: ${(props) => (props.hidden ? props.size + 0.25 : "0")}rem;
-	margin-bottom: ${(props) => (props.hidden ? "1rem" : "0")};
+	margin-bottom: ${(props) => (props.hidden ? "0.75rem" : "0")};
 	overflow: hidden;
 	transition: all 0.5s ease;
 

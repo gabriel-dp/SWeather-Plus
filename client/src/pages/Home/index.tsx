@@ -9,7 +9,7 @@ import TimeSlider from "@/components/TimeSlider";
 import WeatherImage from "@/components/WeatherImage";
 import LocationSearch from "@/components/LocationSearch";
 
-import { Screen } from "./styles";
+import { Screen, MainWeatherWrapper } from "./styles";
 
 export default function Home() {
 	const [range, setRange] = useState(2);
@@ -25,12 +25,14 @@ export default function Home() {
 		<Screen>
 			<DataProvider search={search} range={range} interval={interval} unitsSystem={unitsSystem}>
 				<WeatherBackground>
-					<MainWeatherData>
-						<WeatherImage />
-						<TimeDisplay />
-						<TimeSlider range={range} interval={interval} setInterval={setInterval} />
-					</MainWeatherData>
-					<LocationSearch setSearch={setSearch} />
+					<MainWeatherWrapper>
+						<MainWeatherData>
+							<WeatherImage />
+							<TimeDisplay />
+							<TimeSlider range={range} interval={interval} setInterval={setInterval} />
+						</MainWeatherData>
+						<LocationSearch setSearch={setSearch} />
+					</MainWeatherWrapper>
 				</WeatherBackground>
 			</DataProvider>
 		</Screen>
