@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface SliderProps {
+	isActive: boolean;
+}
+
 const thumbStyle = (isActive: boolean) => `
 	-webkit-appearance: none;
 	height: 1.25rem;
@@ -10,14 +14,10 @@ const thumbStyle = (isActive: boolean) => `
 	box-shadow: 0 0 1rem #ffffffaa;
 	filter: drop-shadow(0 0 0.1rem #000000aa);
 	cursor: ${isActive ? "ew-resize" : "default"};
-	opacity: ${isActive ? "1" : "0.01"};
+	opacity: ${isActive ? "1" : "0"};
 	transition: all 0.25s ease-in-out;
 
 `;
-
-interface SliderProps {
-	isActive: boolean;
-}
 
 export const CustomSlider = styled.input.attrs({
 	type: "range",

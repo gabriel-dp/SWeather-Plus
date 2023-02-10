@@ -13,16 +13,16 @@ interface SliderProps {
 function TimeSlider(props: SliderProps) {
 	const { intervalData } = useContext(DataContext);
 
+	// When range is equal to zero, put the thumb centered
+	const range = props.range > 0 ? props.range : 1;
+	const interval = props.range > 0 ? props.interval : 1;
+
 	function handleIntervalChange(event: React.ChangeEvent<HTMLInputElement>) {
-		if (!intervalData.status || props.range === 0) return;
+		if (props.range === 0) return;
 
 		const value = parseInt(event.target.value, 10);
 		props.setInterval(value);
 	}
-
-	// When range is equal to zero, put the thumb centered
-	const range = props.range > 0 ? props.range : 1;
-	const interval = props.range > 0 ? props.interval : 1;
 
 	return (
 		<CustomSlider
