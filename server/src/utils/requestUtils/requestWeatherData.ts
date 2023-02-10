@@ -4,10 +4,10 @@ import { timeNow } from "../timeUtils";
 import { hourlyUrl } from "./weatherRequestsUrls";
 import { dailyUrl } from "./weatherRequestsUrls";
 
-export function requestHourlyData(location: string, interval: number) {
+export function requestHourlyData(location: string, range: number) {
 	const now = timeNow();
-	const startTime = new Date(now.setHours(now.getHours() - interval));
-	const endTime = new Date(now.setHours(now.getHours() + interval * 2));
+	const startTime = new Date(now.setHours(now.getHours() - range));
+	const endTime = new Date(now.setHours(now.getHours() + Math.max(range * 2, 1))); // The endTime must be at least now+1 because range can be 0
 
 	return axios
 		.get(hourlyUrl(location, startTime.toISOString(), endTime.toISOString()))

@@ -7,7 +7,7 @@ import { getWeatherData } from "@/utils/getWeatherData";
 const resetLocal = { status: false } as localType;
 const resetWeather = { status: false } as weatherType;
 
-export default function useLocalWeather(search: searchType, interval: number) {
+export default function useLocalWeather(search: searchType, range: number) {
 	const [localData, setLocalData] = useState(resetLocal);
 	const [weatherData, setWeatherData] = useState(resetWeather);
 
@@ -29,7 +29,7 @@ export default function useLocalWeather(search: searchType, interval: number) {
 
 		const location: [number, number] = [localData.lat, localData.lon];
 
-		const setWeatherDataAsync = async () => setWeatherData(await getWeatherData(location, interval));
+		const setWeatherDataAsync = async () => setWeatherData(await getWeatherData(location, range));
 		setWeatherDataAsync();
 	}, [localData]);
 

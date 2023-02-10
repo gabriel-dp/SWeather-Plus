@@ -15,7 +15,7 @@ export default function Home() {
 
 	return (
 		<Screen>
-			<DataProvider search={search} range={range} interval={interval}>
+			<DataProvider search={search}>
 				<WeatherBackground>
 					<TimeSlider range={range} interval={interval} setInterval={setInterval} />
 					<LocationSearch setSearch={setSearch} />

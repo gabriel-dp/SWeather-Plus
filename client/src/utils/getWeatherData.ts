@@ -3,14 +3,14 @@ import { dailyType, hourlyType, weatherType } from "./dataTypes";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
-const hourlyUrl = (location: [number, number], interval: number) =>
-	`${BASE_URL}/weather/hourly/?location=${location.join(",")}&interval=${interval}`;
+const hourlyUrl = (location: [number, number], range: number) =>
+	`${BASE_URL}/weather/hourly/?location=${location.join(",")}&range=${range}`;
 
 const dailyUrl = (location: [number, number]) => `${BASE_URL}/weather/daily/?location=${location.join(",")}`;
 
-export async function getWeatherData(location: [number, number], interval: number) {
+export async function getWeatherData(location: [number, number], range: number) {
 	try {
-		const hourly = await fetchData(hourlyUrl(location, interval), "Cannot get weather");
+		const hourly = await fetchData(hourlyUrl(location, range), "Cannot get weather");
 		const daily = await fetchData(dailyUrl(location), "Cannot get weather");
 
 		const weatherData: weatherType = {

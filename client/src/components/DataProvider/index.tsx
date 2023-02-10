@@ -3,16 +3,16 @@ import { DataContext, intervalType, searchType } from "@/utils/dataTypes";
 
 interface ProviderProps {
 	search: searchType;
-	range: number;
-	interval: number;
+	range?: number;
+	interval?: number;
 	children: React.ReactNode;
 }
 
 export default function DataProvider(props: ProviderProps) {
-	const { localData, weatherData } = useLocalWeather(props.search, props.range);
+	const { localData, weatherData } = useLocalWeather(props.search, props.range ?? 0);
 
 	const intervalData: intervalType = weatherData.status
-		? { status: true, interval: weatherData.hourlyData[props.interval], day: weatherData.dailyData }
+		? { status: true, interval: weatherData.hourlyData[props.interval ?? 0], day: weatherData.dailyData }
 		: ({ status: false } as intervalType);
 
 	const providerValue = {
