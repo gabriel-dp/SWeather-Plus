@@ -1,5 +1,5 @@
-import fetchData from "./fetchData";
-import { dailyType, hourlyType, weatherType } from "./dataTypes";
+import fetchData from "@/utils/fetchData";
+import { dailyType, hourlyType, weatherType } from "@/utils/dataTypes";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 

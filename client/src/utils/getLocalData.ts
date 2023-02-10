@@ -1,5 +1,5 @@
-import fetchData from "./fetchData";
-import { localType } from "./dataTypes";
+import fetchData from "@/utils/fetchData";
+import { localType } from "@/utils/dataTypes";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
