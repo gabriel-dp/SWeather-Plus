@@ -12,7 +12,7 @@ import LocationSearch from "@/components/LocationSearch";
 import { Screen, MainWeatherWrapper } from "./styles";
 
 export default function Home() {
-	const [range, setRange] = useState(2);
+	const [range, setRange] = useState(6);
 	const [interval, setInterval] = useState(range);
 	const [search, setSearch] = useState<searchType>("");
 	const [unitsSystem, setUnitSystem] = useState<unitsSystemType>("metric");
