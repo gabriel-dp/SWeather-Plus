@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { searchType, unitsSystemType } from "@/utils/dataTypes";
 import DataProvider from "@/components/DataProvider";
 import WeatherBackground from "@/components/WeatherBackground";
-import TimeSlider from "@/components/TimeSlider";
-import LocationSearch from "@/components/LocationSearch";
 import MainWeatherData from "@/components/MainWeatherData";
+import TimeDisplay from "@/components/TimeDisplay";
+import TimeSlider from "@/components/TimeSlider";
+import WeatherImage from "@/components/WeatherImage";
+import LocationSearch from "@/components/LocationSearch";
 
 import { Screen } from "./styles";
 
@@ -24,6 +26,8 @@ export default function Home() {
 			<DataProvider search={search} range={range} interval={interval} unitsSystem={unitsSystem}>
 				<WeatherBackground>
 					<MainWeatherData>
+						<WeatherImage />
+						<TimeDisplay />
 						<TimeSlider range={range} interval={interval} setInterval={setInterval} />
 					</MainWeatherData>
 					<LocationSearch setSearch={setSearch} />

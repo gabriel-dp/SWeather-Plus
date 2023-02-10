@@ -5,6 +5,8 @@ interface TextProps {
 }
 
 export const MainContainer = styled.div`
+	width: min(100%, 15rem);
+	padding: 0.5rem 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
