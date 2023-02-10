@@ -1,5 +1,11 @@
+import SunMoon from "./components/SunMoon";
+
 import { WeatherImageContainer } from "./styles";
 
 export default function WeatherImage() {
-	return <WeatherImageContainer />;
+	return (
+		<WeatherImageContainer>
+			<SunMoon />
+		</WeatherImageContainer>
+	);
 }
