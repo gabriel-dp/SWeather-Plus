@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { searchType, unitsSystemType } from "@/utils/dataTypes";
 import DataProvider from "@/components/DataProvider";
@@ -15,12 +15,17 @@ export default function Home() {
 	const [search, setSearch] = useState<searchType>("");
 	const [unitsSystem, setUnitSystem] = useState<unitsSystemType>("metric");
 
+	useEffect(() => {
+		setInterval(range);
+	}, [search]);
+
 	return (
 		<Screen>
 			<DataProvider search={search} range={range} interval={interval} unitsSystem={unitsSystem}>
 				<WeatherBackground>
-					<MainWeatherData />
-					<TimeSlider range={range} interval={interval} setInterval={setInterval} />
+					<MainWeatherData>
+						<TimeSlider range={range} interval={interval} setInterval={setInterval} />
+					</MainWeatherData>
 					<LocationSearch setSearch={setSearch} />
 				</WeatherBackground>
 			</DataProvider>

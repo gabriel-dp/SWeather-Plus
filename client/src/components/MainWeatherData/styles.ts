@@ -1,0 +1,33 @@
+import styled from "styled-components";
+
+interface TextProps {
+	size: number;
+}
+
+export const MainContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+`;
+
+export const DataText = styled.span<TextProps>`
+	color: #fff;
+	font-size: ${(props) => props.size}rem;
+	font-weight: lighter;
+	white-space: nowrap;
+
+	.icon {
+		transform: translateY(${(props) => props.size / 7}rem);
+		margin-right: ${(props) => props.size / 5}rem;
+	}
+`;
+
+export const DataGroup = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1rem;
+`;
