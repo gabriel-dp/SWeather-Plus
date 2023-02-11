@@ -6,6 +6,7 @@ export const WeatherImageContainer = styled.div`
 	position: relative;
 	// border: 1px solid red;
 	overflow: hidden;
+	pointer-events: none;
 
 	* {
 		transition: all 0.4s ease-in-out;

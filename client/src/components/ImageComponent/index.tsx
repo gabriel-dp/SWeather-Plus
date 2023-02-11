@@ -26,6 +26,7 @@ export default function ImageComponent(props: ImageProps) {
 			onLoad={handleLoadImage}
 			isLoading={isLoading}
 			duration={props.duration}
+			draggable={false}
 		/>
 	);
 }

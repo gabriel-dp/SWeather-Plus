@@ -9,4 +9,5 @@ export const TimeText = styled.span<TimeProps>`
 	font-size: ${(props) => props.size}rem;
 	font-weight: lighter;
 	white-space: nowrap;
+	user-select: none;
 `;

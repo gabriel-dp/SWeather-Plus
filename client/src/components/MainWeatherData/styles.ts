@@ -18,6 +18,7 @@ export const DataText = styled.span<TextProps>`
 	font-size: ${(props) => props.size}rem;
 	font-weight: lighter;
 	white-space: nowrap;
+	user-select: none;
 
 	.icon {
 		transform: translateY(${(props) => props.size / 7}rem);
