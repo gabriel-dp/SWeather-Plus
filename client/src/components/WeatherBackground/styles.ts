@@ -29,7 +29,11 @@ export const Background = styled.div<BackgroundProps>`
 
 		height: 200%;
 		top: ${(props) => (props.brightness === 100 ? "0" : "-100%")};
-		background: linear-gradient(#25a8f4, #008df2, #ffca65);
+		background: linear-gradient(
+			${(props) => props.theme.sky.color1},
+			${(props) => props.theme.sky.color2},
+			${(props) => props.theme.sky.color3}
+		);
 
 		transition: all 0.5s ease-in-out;
 		filter: grayscale(${(props) => props.grayscale}%) brightness(${(props) => props.brightness}%);

@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.0" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd" viewBox="0 0 500 500"><defs><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="350.94" y1="501.65" x2="149.06" y2="182.29"><stop offset="0" style="stop-opacity:1;stop-color:#f0f0f0"/><stop offset="1" style="stop-opacity:1;stop-color:white"/></linearGradient></defs><path d="M167.47 260.98a64.27 64.27 0 0 0-39.74-13.77h-.12c-35.4 0-64.21 28.55-65.09 64.11C24.88 325.75 0 361.94 0 402.28v.28c.01.15.01.3.01.44 0 48.28 35.53 89.26 83.32 96.07v.9l333.32.03v-.17c46.48-2.71 83.35-41.67 83.35-89.36v-.44c0-45.08-33.66-83.12-78.42-88.58.17-2.75.31-5.61.31-8.46 0-71.26-59.48-129.02-132.82-129.02-54.29 0-100.98 31.66-121.57 77m-.03.01z" style="fill:url(#a);fill-rule:nonzero"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.0" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="350.94" y1="501.65" x2="149.06" y2="182.29">
+      <stop offset="0" style="stop-opacity:1;stop-color:#ccc"/>
+      <stop offset="1" style="stop-opacity:1;stop-color:#fff"/>
+    </linearGradient>
+  </defs>
+  <path d="M167.47 260.98a64.27 64.27 0 0 0-39.74-13.77h-.12c-35.4 0-64.21 28.55-65.09 64.11C24.88 325.75 0 361.94 0 402.28v.28c.01.15.01.3.01.44 0 48.28 35.53 89.26 83.32 96.07v.9l333.32.03v-.17c46.48-2.71 83.35-41.67 83.35-89.36v-.44c0-45.08-33.66-83.12-78.42-88.58.17-2.75.31-5.61.31-8.46 0-71.26-59.48-129.02-132.82-129.02-54.29 0-100.98 31.66-121.57 77m-.03.01z" style="fill:url(#a);fill-rule:nonzero"/>
+</svg>

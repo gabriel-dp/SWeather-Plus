@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const SearchContainer = styled.div`
 	width: min(100%, 30rem);
-	background-color: #ffffffaa;
-	border: 1px solid #ffffff;
+	background-color: ${(props) => props.theme.ui.searchContainer}aa;
+	border: 1px solid ${(props) => props.theme.ui.searchContainer};
 	border-radius: 1rem;
 	padding: 1rem;
 
@@ -35,7 +35,7 @@ export const LocalInfoContainer = styled.div<LocalContainerProps>`
 		text-align: center;
 
 		p {
-			color: #444;
+			color: ${(props) => props.theme.ui.cityText};
 			font-size: 1.5rem;
 			font-weight: bold;
 			overflow: hidden;
@@ -51,7 +51,7 @@ export const InputContainer = styled.div`
 	width: 100%;
 	height: ${INPUT_HEIGHT}rem;
 	border-radius: 3rem;
-	background-color: white;
+	background-color: ${(props) => props.theme.ui.inputContainer};
 	overflow: hidden;
 
 	filter: drop-shadow(0 0 0.5rem #00000011);
@@ -70,7 +70,7 @@ export const SearchIconContainer = styled.div`
 	height: 100%;
 	aspect-ratio: 1;
 	font-size: 0.85rem;
-	color: #666;
+	color: ${(props) => props.theme.ui.button};
 	pointer-events: none;
 
 	position: absolute;
@@ -91,6 +91,7 @@ export const SearchInput = styled.input.attrs({
 	background-color: transparent;
 	border: none;
 	text-overflow: ellipsis;
+	color: ${(props) => props.theme.ui.textDark};
 	z-index: 2;
 `;
 
@@ -98,9 +99,9 @@ export const LocationButton = styled.button`
 	aspect-ratio: 1;
 	height: 100%;
 	border: none;
-	background-color: #666;
-	color: #fff;
-	border: 2px solid #fff;
+	background-color: ${(props) => props.theme.ui.button};
+	color: ${(props) => props.theme.ui.textLight};
+	border: 2px solid ${(props) => props.theme.ui.inputContainer};
 	border-radius: 3rem;
 	cursor: pointer;
 	transition: background 0.25s ease;
@@ -109,6 +110,6 @@ export const LocationButton = styled.button`
 	right: 0;
 
 	:hover {
-		background-color: #888;
+		background-color: ${(props) => props.theme.ui.buttonHover};
 	}
 `;

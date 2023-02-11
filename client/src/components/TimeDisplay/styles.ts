@@ -5,7 +5,7 @@ interface TimeProps {
 }
 
 export const TimeText = styled.span<TimeProps>`
-	color: #fff;
+	color: ${(props) => props.theme.ui.textLight};
 	font-size: ${(props) => props.size}rem;
 	font-weight: lighter;
 	white-space: nowrap;

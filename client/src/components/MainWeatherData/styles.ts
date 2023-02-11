@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
 `;
 
 export const DataText = styled.span<TextProps>`
-	color: #fff;
+	color: ${(props) => props.theme.ui.textLight};
 	font-size: ${(props) => props.size}rem;
 	font-weight: lighter;
 	white-space: nowrap;

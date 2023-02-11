@@ -16,7 +16,6 @@ const thumbStyle = (isActive: boolean) => `
 	cursor: ${isActive ? "ew-resize" : "default"};
 	opacity: ${isActive ? "1" : "0"};
 	transition: all 0.25s ease-in-out;
-
 `;
 
 export const CustomSlider = styled.input.attrs({
