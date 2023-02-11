@@ -7,7 +7,7 @@ export const SunMoonContainer = styled.div`
 	overflow: hidden;
 	transition: all 0.5s ease-in-out;
 	position: relative;
-	background: linear-gradient(#ccc, #aaa);
+	background: linear-gradient(#ff0, #ff8800);
 `;
 
 interface SunMoonProps {
@@ -40,24 +40,32 @@ interface MoonEffectProps {
 	moonPhasePercentage: number;
 }
 
+const BLUR_MOON = 3;
+
+const moonDarkWidth = (percentage: number) => Math.max(Math.abs(4 * (percentage % 50) - 100), 10);
+
 export const MoonDark = styled.div<MoonEffectProps>`
-	width: ${(props) => Math.max(Math.abs(4 * (props.moonPhasePercentage % 50) - 100), 10)}%;
-	height: 100%;
+	width: calc(${(props) => moonDarkWidth(props.moonPhasePercentage)}% + ${BLUR_MOON}px);
 	border-radius: 100%;
+	height: calc(100% + ${2 * BLUR_MOON}px);
+	filter: blur(${BLUR_MOON}px);
 	background: ${(props) =>
 		props.moonPhasePercentage <= 25 || props.moonPhasePercentage > 75 ? "#333" : "linear-gradient(#ccc, #aaa)"};
 	transition: width 1s ease-in-out;
 
 	position: absolute;
-	left: 50%;
+	top: ${-BLUR_MOON}px;
+	left: calc(50% - ${BLUR_MOON}px);
 	transform: translateX(-50%);
 `;
 
 export const MoonDarkSide = styled.div<MoonEffectProps>`
-	width: 50%;
-	height: 100%;
+	width: calc(50% + ${2 * BLUR_MOON}px);
+	height: calc(100% + ${2 * BLUR_MOON}px);
 	background-color: #333;
+	filter: blur(${BLUR_MOON}px);
 
 	position: absolute;
-	${(props) => (props.moonPhasePercentage < 50 ? "left: 0" : "right: 0")};
+	top: ${-BLUR_MOON}px;
+	${(props) => `${props.moonPhasePercentage < 50 ? "left:" : "right:"}${-BLUR_MOON}px`};
 `;
