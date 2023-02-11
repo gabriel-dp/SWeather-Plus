@@ -1,7 +1,10 @@
 import { IDataContext, hourlyValues } from "@/utils/dataTypes";
-import { fahrenheit, milesPerHour } from "@/utils/unitsConversions";
 
 const normalize = (measure: number, decimals: number, unit: string) => [measure.toFixed(decimals), unit].join("");
+
+const fahrenheit = (celsius: number) => celsius * 1.8 + 32;
+
+const milesPerHour = (metersPerSec: number) => metersPerSec * 2.2369;
 
 export class formattedWeatherData {
 	data: IDataContext;
