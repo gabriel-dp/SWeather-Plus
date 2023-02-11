@@ -14,8 +14,6 @@ export default function MainWeatherData(props: DataProps) {
 	const contextData = useContext(DataContext);
 	const data = new formattedWeatherData(contextData);
 
-	console.log(contextData);
-
 	return (
 		<MainContainer>
 			<DataText size={2.5}>{data.getTemperature()}</DataText>

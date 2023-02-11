@@ -1,28 +1,23 @@
 import { useContext } from "react";
 
 import { DataContext } from "@/utils/dataTypes";
+import { isTimeDay } from "@/utils/timeUtils";
 
 import { SunMoonContainer, Sun, MoonDark, MoonDarkSide, Moon } from "./styles";
-
-const compareTimes = (time: string, sunriseTime: string, sunsetTime: string) => {
-	const getDayMinutes = (timeString: string) => {
-		const dateTime = new Date(timeString);
-		const minutes = dateTime.getHours() * 60 + dateTime.getMinutes();
-		return minutes;
-	};
-
-	return getDayMinutes(time) > getDayMinutes(sunriseTime) && getDayMinutes(time) < getDayMinutes(sunsetTime);
-};
 
 export default function SunMoon() {
 	const data = useContext(DataContext).intervalData;
 
 	if (!data.status) {
-		return <SunMoonContainer></SunMoonContainer>;
+		return (
+			<SunMoonContainer>
+				<Sun isDay={true} />
+			</SunMoonContainer>
+		);
 	}
 
 	const { sunriseTime, sunsetTime, moonPhase } = data.day;
-	const isDay = compareTimes(data.interval.startTime, sunriseTime, sunsetTime);
+	const isDay = isTimeDay(data.interval.startTime, sunriseTime, sunsetTime);
 	const moonPhasePercentage = 12.5 * moonPhase;
 
 	return (
