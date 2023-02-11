@@ -10,13 +10,13 @@ import { WeatherImageContainer, CloudContainer, SunMoonContainer } from "./style
 export default function WeatherImage() {
 	const data = useContext(DataContext).intervalData;
 
-	// Controls Cloud and Sun/Moon size
 	let cloudSize = 100,
 		sunMoonSize = 0,
 		isDay = true,
 		moonPhasePercentage = 50;
 
 	if (data.status) {
+		// Controls Cloud and Sun/Moon size
 		const { cloudCover } = data.interval.values;
 		if (cloudCover < 10) {
 			cloudSize = 0;
@@ -25,8 +25,6 @@ export default function WeatherImage() {
 			cloudSize = 50 + 0.375 * cloudCover;
 			sunMoonSize = 100 - cloudCover * 0.375;
 		}
-
-		console.log(cloudCover, cloudSize, sunMoonSize);
 
 		// Controls Day/Night and Moon phase
 		const { sunriseTime, sunsetTime, moonPhase } = data.day;
