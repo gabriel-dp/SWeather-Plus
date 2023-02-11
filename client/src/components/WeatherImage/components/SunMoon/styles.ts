@@ -1,19 +1,13 @@
 import styled from "styled-components";
 
-interface ContainerProps {
-	size: number;
-}
-
-export const SunMoonContainer = styled.div<ContainerProps>`
+export const SunMoonContainer = styled.div`
+	width: 100%;
 	aspect-ratio: 1;
 	border-radius: 50%;
 	overflow: hidden;
 	transition: all 0.5s ease-in-out;
-
-	width: ${(props) => props.size}%;
-	position: absolute;
-	left: ${(props) => props.size / 10 + 5}%;
-	bottom: 25%;
+	position: relative;
+	background: linear-gradient(#ccc, #aaa);
 `;
 
 interface SunMoonProps {
