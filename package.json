@@ -5,7 +5,9 @@
 		"dev:client": "cd client && npm start",
 		"dev:server": "cd server && npm start",
 		"dev": "npm-run-all --parallel dev:client dev:server",
-		"prepare": "husky install"
+		"prepare:client": "cd client && npm install",
+		"prepare:server": "cd server && npm install",
+		"prepare": "husky install && npm run prepare:client && npm run prepare:server"
 	},
 	"license": "GPL-3.0",
 	"devDependencies": {
