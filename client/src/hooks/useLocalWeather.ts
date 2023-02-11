@@ -31,7 +31,7 @@ export default function useLocalWeather(search: searchType, range: number) {
 
 		const setWeatherDataAsync = async () => setWeatherData(await getWeatherData(location, range));
 		setWeatherDataAsync();
-	}, [localData]);
+	}, [localData, range]);
 
 	return { localData, weatherData };
 }

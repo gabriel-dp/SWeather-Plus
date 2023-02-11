@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import localController from "../controllers/local.controller";
+import localController from "@/controllers/local.controller";
 
 const router = Router();
 

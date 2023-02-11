@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { timeNow } from "../timeUtils";
+import { timeNow } from "@/utils/timeUtils";
 import { hourlyUrl } from "./weatherRequestsUrls";
 import { dailyUrl } from "./weatherRequestsUrls";
 

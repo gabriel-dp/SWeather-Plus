@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import checkQueries from "../utils/checkQueries";
-import { requestHourlyData, requestDailyData } from "../utils/requestUtils/requestWeatherData";
+import checkQueries from "@/utils/checkQueries";
+import { requestHourlyData, requestDailyData } from "@/utils/requestUtils/requestWeatherData";
 
 async function getHourlyData(req: Request, res: Response) {
 	try {

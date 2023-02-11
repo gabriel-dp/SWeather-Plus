@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import checkQueries from "../utils/checkQueries";
-import { requestLocalDataByCityName, requestLocalDataByCoords } from "../utils/requestUtils/requestLocalData";
+import checkQueries from "@/utils/checkQueries";
+import { requestLocalDataByCityName, requestLocalDataByCoords } from "@/utils/requestUtils/requestLocalData";
 
 async function getLocalDataByCityName(req: Request, res: Response) {
 	try {

@@ -4,8 +4,8 @@ import cors from "cors";
 
 dotenv.config();
 
-import weatherRouter from "./routers/weather.router";
-import localRouter from "./routers/local.router";
+import weatherRouter from "@/routers/weather.router";
+import localRouter from "@/routers/local.router";
 
 const app = express();
 
