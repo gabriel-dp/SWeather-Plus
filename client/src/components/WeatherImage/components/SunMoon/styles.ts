@@ -1,19 +1,26 @@
 import styled from "styled-components";
 
-export const SunMoonContainer = styled.div`
-	width: 100%;
+interface ContainerProps {
+	size: number;
+}
+
+export const SunMoonContainer = styled.div<ContainerProps>`
 	aspect-ratio: 1;
 	border-radius: 50%;
 	overflow: hidden;
+	transition: all 0.5s ease-in-out;
 
-	position: relative;
+	width: ${(props) => props.size}%;
+	position: absolute;
+	left: ${(props) => props.size / 10 + 5}%;
+	bottom: 25%;
 `;
 
-interface MoonProps {
+interface SunMoonProps {
 	isDay: boolean;
 }
 
-export const Sun = styled.div<MoonProps>`
+export const Sun = styled.div<SunMoonProps>`
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(#ff0, #ff8800);
@@ -24,7 +31,7 @@ export const Sun = styled.div<MoonProps>`
 	z-index: ${(props) => (props.isDay ? "1" : "0")};
 `;
 
-export const Moon = styled.div<MoonProps>`
+export const Moon = styled.div<SunMoonProps>`
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(#ccc, #aaa);
