@@ -50,7 +50,7 @@ export type intervalType = {
 
 export type searchType = string | [number, number];
 
-export type unitsSystemType = "metric" | "imperial";
+export type unitsSystemType = "metric" | "imperial" | null;
 
 export interface IDataContext {
 	intervalData: intervalType;

@@ -11,15 +11,15 @@ export const SearchContainer = styled.div`
 	flex-direction: column;
 `;
 
-interface LocalContainerProps {
+interface HiddableContainerProps {
 	hidden: boolean;
 	size: number;
 }
 
-export const LocalInfoContainer = styled.div<LocalContainerProps>`
+export const LocalInfoContainer = styled.div<HiddableContainerProps>`
 	width: 100%;
-	height: ${(props) => (props.hidden ? props.size + 0.25 : "0")}rem;
-	margin-bottom: ${(props) => (props.hidden ? "0.75rem" : "0")};
+	height: ${(props) => (props.hidden ? "0" : props.size + 0.25)}rem;
+	margin-bottom: ${(props) => (props.hidden ? "0" : "0.75rem")};
 	overflow: hidden;
 	transition: all 0.5s ease;
 
@@ -30,7 +30,7 @@ export const LocalInfoContainer = styled.div<LocalContainerProps>`
 
 	.city {
 		transition: opacity 1.5s ease;
-		opacity: ${(props) => (props.hidden ? "1" : "0")};
+		opacity: ${(props) => (props.hidden ? "0" : "1")};
 		width: 100%;
 		text-align: center;
 
@@ -111,5 +111,35 @@ export const LocationButton = styled.button`
 
 	:hover {
 		background-color: ${(props) => props.theme.ui.buttonHover};
+	}
+`;
+
+export const OptionsContainer = styled.div<HiddableContainerProps>`
+	width: 100%;
+	overflow: hidden;
+	height: ${(props) => (props.hidden ? 0 : props.size)}rem;
+	margin-top: ${(props) => (props.hidden ? "0" : "0.75rem")};
+	opacity: ${(props) => (props.hidden ? 0 : 1)};
+	color: ${(props) => props.theme.ui.cityText};
+	transition: all 0.5s ease;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.units {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		white-space: nowrap;
+
+		label {
+			margin-left: 0.5rem;
+		}
+
+		input {
+			transform: translateY(0.1rem);
+		}
 	}
 `;

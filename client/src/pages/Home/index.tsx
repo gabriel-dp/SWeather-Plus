@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 
-import { searchType } from "@/utils/dataTypes";
+import { searchType, unitsSystemType } from "@/utils/dataTypes";
 import DataProvider from "@/components/DataProvider";
 import WeatherBackground from "@/components/WeatherBackground";
 import MainWeatherData from "@/components/MainWeatherData";
 import TimeDisplay from "@/components/TimeDisplay";
 import TimeSlider from "@/components/TimeSlider";
 import WeatherImage from "@/components/WeatherImage";
-import LocationSearch from "@/components/LocationSearch";
+import WeatherMenu from "@/components/WeatherMenu";
 
 import { Screen, MainWeatherWrapper } from "./styles";
 
 export default function Home() {
-	const range = 5;
-	const unitsSystem = "metric";
+	const range = 6;
+	const [unitsSystem, setUnitsSystem] = useState<unitsSystemType>(null);
 
 	const [interval, setInterval] = useState(range);
 	const [search, setSearch] = useState<searchType>("");
@@ -32,7 +32,7 @@ export default function Home() {
 							<TimeDisplay />
 							<TimeSlider range={range} interval={interval} setInterval={setInterval} />
 						</MainWeatherData>
-						<LocationSearch setSearch={setSearch} />
+						<WeatherMenu setSearch={setSearch} unitsSystem={unitsSystem} setUnitSystem={setUnitsSystem} />
 					</MainWeatherWrapper>
 				</WeatherBackground>
 			</DataProvider>
