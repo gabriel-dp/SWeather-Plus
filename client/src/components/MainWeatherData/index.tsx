@@ -18,15 +18,15 @@ export default function MainWeatherData(props: DataProps) {
 		<MainContainer>
 			<DataText size={2.5}>{data.getTemperature()}</DataText>
 			<DataGroup>
-				<DataText size={1.25}>
+				<DataText size={1.1}>
 					<WiStrongWind className="icon" />
 					{data.getWindSpeed()}
 				</DataText>
-				<DataText size={1.25}>
+				<DataText size={1.1}>
 					<WiHumidity className="icon" />
 					{data.getHumidity()}
 				</DataText>
-				<DataText size={1.25}>
+				<DataText size={1.1}>
 					<WiRain className="icon" />
 					{data.getPrecipitationProbability()}
 				</DataText>
