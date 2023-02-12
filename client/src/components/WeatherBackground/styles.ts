@@ -36,6 +36,7 @@ export const Background = styled.div<BackgroundProps>`
 		);
 
 		transition: all 0.5s ease-in-out;
-		filter: grayscale(${(props) => props.grayscale}%) brightness(${(props) => props.brightness}%);
+		filter: grayscale(${(props) => props.grayscale + (100 - props.brightness) / 2}%)
+			brightness(${(props) => props.brightness}%);
 	}
 `;
