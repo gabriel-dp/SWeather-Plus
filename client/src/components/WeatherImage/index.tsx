@@ -4,8 +4,9 @@ import { DataContext } from "@/utils/dataTypes";
 import { isTimeDay } from "@/utils/timeUtils";
 import SunMoon from "./components/SunMoon";
 import Cloud from "./components/Cloud";
+import Precipitation from "./components/Precipitation";
 
-import { WeatherImageContainer, CloudContainer, SunMoonContainer } from "./styles";
+import { WeatherImageContainer, CloudContainer, SunMoonContainer, PrecipitationContainer } from "./styles";
 
 export default function WeatherImage() {
 	const data = useContext(DataContext).intervalData;
@@ -37,6 +38,9 @@ export default function WeatherImage() {
 			<SunMoonContainer size={sunMoonSize}>
 				<SunMoon isDay={isDay} moonPhasePercentage={moonPhasePercentage} />
 			</SunMoonContainer>
+			<PrecipitationContainer size={cloudSize}>
+				<Precipitation />
+			</PrecipitationContainer>
 			<CloudContainer size={cloudSize}>
 				<Cloud />
 			</CloudContainer>

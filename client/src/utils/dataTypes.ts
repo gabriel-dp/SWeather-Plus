@@ -52,6 +52,13 @@ export type searchType = string | [number, number];
 
 export type unitsSystemType = "metric" | "imperial" | null;
 
+export enum particles {
+	rain,
+	freezingRain,
+	sleet,
+	snow,
+}
+
 export interface IDataContext {
 	intervalData: intervalType;
 	localData: localType;
