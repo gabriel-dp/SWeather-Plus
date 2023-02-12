@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="159.999" height="159.999" version="1.0" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd" viewBox="0 0 1666.66 1666.66">
-  <defs>
-    <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="-134066.35" y1="1444.94" x2="-134066.35" y2="-221.62">
-      <stop offset="0" style="stop-opacity:1;stop-color:#abdaf9"/>
-      <stop offset="1" style="stop-opacity:1;stop-color:#e1f2ff"/>
-    </linearGradient>
-  </defs>
-  <path style="fill:url(#a);fill-rule:nonzero" d="m833.33 0 833.33 833.33-833.33 833.34L0 833.33z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="159.999" height="159.999" version="1.0" viewBox="0 0 1666.66 1666.66" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><defs><linearGradient id="prefix__a" gradientUnits="userSpaceOnUse" x1="-134066.35" y1="1444.94" x2="-134066.35" y2="-221.62"><stop offset="0" stop-color="#abdaf9"/><stop offset="1" stop-color="#e1f2ff"/></linearGradient></defs><path d="M833.33 0l833.33 833.33-833.33 833.34L0 833.33z" fill="url(#prefix__a)" fill-rule="nonzero"/></svg>

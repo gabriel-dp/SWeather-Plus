@@ -3,12 +3,22 @@ import styled from "styled-components";
 export const PrecipitationContainer = styled.div`
 	height: 100%;
 	width: 100%;
-	background: linear-gradient(blue, yellow);
+	border: 1px solid yellow;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 `;
 
 export const ParticleContainer = styled.div`
-	height: 1rem;
-	width: 1rem;
+	width: 12%;
 	aspect-ratio: 1;
-	background-color: red;
+	overflow: hidden;
+
+	* {
+		max-height: 100%;
+		max-width: 100%;
+
+		fill: #ddd;
+	}
 `;

@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="159.999" height="159.999" version="1.0" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd" viewBox="0 0 1666.66 1666.66">
-  <defs>
-    <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="-80106.58" y1="1444.94" x2="-80106.58" y2="-221.61">
-      <stop offset="0" style="stop-opacity:1;stop-color:#abdaf9"/>
-      <stop offset="1" style="stop-opacity:1;stop-color:#e1f2ff"/>
-    </linearGradient>
-  </defs>
-  <path d="M833.33 1666.67c303.11-10.2 539.67-287.22 494.43-648.82-21.55-172.26-140.85-374.12-219.72-529.73C1014.15 302.9 919.61 148.67 833.33 0h-.01C747.03 148.67 652.5 302.9 558.61 488.12c-78.88 155.61-198.18 357.47-219.72 529.73-45.23 361.6 191.32 638.62 494.44 648.82z" style="fill:url(#a);fill-rule:nonzero"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="159.999" height="159.999" version="1.0" viewBox="0 0 1666.66 1666.66" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><defs><linearGradient id="prefix__a" gradientUnits="userSpaceOnUse" x1="-80106.58" y1="1444.94" x2="-80106.58" y2="-221.61"><stop offset="0" stop-color="#00f"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><path d="M833.33 1666.67c303.11-10.2 539.67-287.22 494.43-648.82-21.55-172.26-140.85-374.12-219.72-529.73C1014.15 302.9 919.61 148.67 833.33 0h-.01C747.03 148.67 652.5 302.9 558.61 488.12c-78.88 155.61-198.18 357.47-219.72 529.73-45.23 361.6 191.32 638.62 494.44 648.82z" fill="url(#prefix__a)" fill-rule="nonzero"/></svg>

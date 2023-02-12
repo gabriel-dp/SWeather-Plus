@@ -1,10 +1,8 @@
-import React from "react";
-
 import { particles } from "@/utils/dataTypes";
-import Rain from "./components/Rain";
-import FreezingRain from "./components/FreezingRain";
-import Sleet from "./components/Sleet";
-import Snow from "./components/Snow";
+import RainSvg from "@/assets/rain.svg";
+import FreezingRainSvg from "@/assets/freezing-rain.svg";
+import SleetSvg from "@/assets/sleet.svg";
+import SnowSvg from "@/assets/snow.svg";
 
 import { PrecipitationContainer, ParticleContainer } from "./styles";
 
@@ -15,13 +13,13 @@ interface ParticleProps {
 const Particle = (props: ParticleProps) => {
 	switch (props.precipitationType) {
 		case particles.freezingRain:
-			return <FreezingRain />;
+			return <FreezingRainSvg />;
 		case particles.sleet:
-			return <Sleet />;
+			return <SleetSvg />;
 		case particles.snow:
-			return <Snow />;
+			return <SnowSvg />;
 		default:
-			return <Rain />;
+			return <RainSvg />;
 	}
 };
 
@@ -30,6 +28,15 @@ export default function Precipitation() {
 		<PrecipitationContainer>
 			<ParticleContainer>
 				<Particle precipitationType={0} />
+			</ParticleContainer>
+			<ParticleContainer>
+				<Particle precipitationType={1} />
+			</ParticleContainer>
+			<ParticleContainer>
+				<Particle precipitationType={2} />
+			</ParticleContainer>
+			<ParticleContainer>
+				<Particle precipitationType={3} />
 			</ParticleContainer>
 		</PrecipitationContainer>
 	);
