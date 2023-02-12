@@ -7,7 +7,7 @@ export const SunMoonContainer = styled.div`
 	overflow: hidden;
 	transition: all 0.5s ease-in-out;
 	position: relative;
-	background: linear-gradient(135deg, ${(props) => props.theme.sun.color1}, ${(props) => props.theme.sun.color2});
+	background: linear-gradient(${(props) => props.theme.moon.color1}, ${(props) => props.theme.moon.color2});
 `;
 
 interface SunMoonProps {
