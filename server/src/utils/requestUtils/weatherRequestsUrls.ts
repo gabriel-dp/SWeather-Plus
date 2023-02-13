@@ -4,16 +4,12 @@ const API_KEY = process.env.TOMORROWIO_API_KEY;
 const HOURLY_FIELDS = [
 	"temperature", // Main data
 	"humidity", // Main data
+	"precipitationProbability", // Main data
 	"windSpeed", // Main data & Animation
 	"precipitationType", // Animation
 	"precipitationIntensity", // Animation
-	"rainIntensity", // Animation
-	"snowIntensity", // Animation
-	"freezingRainIntensity", // Animation
-	"sleetIntensity", // Animation
 	"cloudCover", // Animation & Background
 	"windDirection", // Extra data
-	"precipitationProbability", // Extra data
 ];
 
 const DAYLY_FIELDS = ["sunriseTime", "sunsetTime", "moonPhase"];

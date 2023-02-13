@@ -8,10 +8,6 @@ export type hourlyValues = {
 		windSpeed: number;
 		precipitationType: number;
 		precipitationIntensity: number;
-		rainIntensity: number;
-		snowIntensity: number;
-		freezingRainIntensity: number;
-		sleetIntensity: number;
 		cloudCover: number;
 		windDirection: number;
 		precipitationProbability: number;
