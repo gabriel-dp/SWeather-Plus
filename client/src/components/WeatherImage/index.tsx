@@ -14,7 +14,9 @@ export default function WeatherImage() {
 	let cloudSize = 100,
 		sunMoonSize = 0,
 		isDay = true,
-		moonPhasePercentage = 50;
+		moonPhasePercentage = 50,
+		precipitationType = 0,
+		precipitationIntensity = 0;
 
 	if (data.status) {
 		// Controls Cloud and Sun/Moon size
@@ -31,6 +33,10 @@ export default function WeatherImage() {
 		const { sunriseTime, sunsetTime, moonPhase } = data.day;
 		isDay = isTimeDay(data.interval.startTime, sunriseTime, sunsetTime);
 		moonPhasePercentage = 12.5 * moonPhase;
+
+		// Assign precipitation values
+		precipitationType = data.interval.values.precipitationType;
+		precipitationIntensity = data.interval.values.precipitationIntensity;
 	}
 
 	return (
@@ -39,7 +45,7 @@ export default function WeatherImage() {
 				<SunMoon isDay={isDay} moonPhasePercentage={moonPhasePercentage} />
 			</SunMoonContainer>
 			<PrecipitationContainer size={cloudSize}>
-				<Precipitation />
+				<Precipitation type={precipitationType} intensity={precipitationIntensity} />
 			</PrecipitationContainer>
 			<CloudContainer size={cloudSize}>
 				<Cloud />

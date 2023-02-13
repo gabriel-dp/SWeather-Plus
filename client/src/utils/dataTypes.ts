@@ -53,10 +53,10 @@ export type searchType = string | [number, number];
 export type unitsSystemType = "metric" | "imperial" | null;
 
 export enum particles {
-	rain,
-	freezingRain,
-	sleet,
-	snow,
+	rain = 1,
+	snow = 2,
+	freezingRain = 3,
+	sleet = 4,
 }
 
 export interface IDataContext {

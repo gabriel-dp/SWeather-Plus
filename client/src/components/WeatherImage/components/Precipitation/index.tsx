@@ -7,11 +7,13 @@ import SnowSvg from "@/assets/snow.svg";
 import { PrecipitationContainer, ParticleContainer } from "./styles";
 
 interface ParticleProps {
-	precipitationType: number;
+	type: number;
 }
 
 const Particle = (props: ParticleProps) => {
-	switch (props.precipitationType) {
+	switch (props.type) {
+		case particles.rain:
+			return <RainSvg />;
 		case particles.freezingRain:
 			return <FreezingRainSvg />;
 		case particles.sleet:
@@ -19,25 +21,41 @@ const Particle = (props: ParticleProps) => {
 		case particles.snow:
 			return <SnowSvg />;
 		default:
-			return <RainSvg />;
+			return <></>;
 	}
 };
 
-export default function Precipitation() {
+interface PrecipitationProps {
+	type: number;
+	intensity: number;
+}
+
+export default function Precipitation(props: PrecipitationProps) {
+	// Define quantity - Each particle represents 1mm/h
+	const particlesQuantity = Math.ceil(props.intensity);
+
+	// Define width of each particle
+	const particleWidth = particlesQuantity === 0 ? 0 : 100 / particlesQuantity;
+
+	// Define fall duration in seconds
+	const particleFallDuration = particlesQuantity === 0 ? 0 : 1 / Math.pow(particlesQuantity, 1 / 5);
+
 	return (
 		<PrecipitationContainer>
-			<ParticleContainer>
-				<Particle precipitationType={0} />
-			</ParticleContainer>
-			<ParticleContainer>
-				<Particle precipitationType={1} />
-			</ParticleContainer>
-			<ParticleContainer>
-				<Particle precipitationType={2} />
-			</ParticleContainer>
-			<ParticleContainer>
-				<Particle precipitationType={3} />
-			</ParticleContainer>
+			{Array.from({ length: particlesQuantity }).map((_, index) => {
+				const particleRandomDelay = (Math.random() - 0.5) / 2;
+				return (
+					<ParticleContainer
+						key={particleRandomDelay}
+						particleWidth={particleWidth}
+						particleFallDuration={particleFallDuration}
+						particleRandomDelay={particleRandomDelay}
+						index={index}
+					>
+						<Particle type={props.type} />
+					</ParticleContainer>
+				);
+			})}
 		</PrecipitationContainer>
 	);
 }
