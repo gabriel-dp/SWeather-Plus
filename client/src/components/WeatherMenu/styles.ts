@@ -82,10 +82,8 @@ export const SearchIconContainer = styled.div`
 `;
 
 export const SearchInput = styled.input.attrs({
-	type: "text",
-	id: "search",
+	type: "search",
 	name: "city",
-	autoComplete: "none",
 })`
 	width: 100%;
 	height: 100%;
