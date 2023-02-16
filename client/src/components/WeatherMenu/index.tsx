@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { FaSearch, FaMapMarkerAlt } from "react-icons/fa";
 
 import { DataContext, searchType, unitsSystemType } from "@/utils/dataTypes";
@@ -24,6 +24,7 @@ interface SearchProps {
 export default function WeatherMenu(props: SearchProps) {
 	const [input, setInput] = useState("");
 	const [selectedUnitsSystem, setSelectedUnitsSystem] = useState<unitsSystemType>("metric");
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	function handleInputChange(input: string) {
 		setInput(input);
@@ -38,9 +39,10 @@ export default function WeatherMenu(props: SearchProps) {
 
 	function handleSubmitInput(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
+		props.setUnitSystem(selectedUnitsSystem);
 		props.setSearch(input);
 		setInput("");
-		props.setUnitSystem(selectedUnitsSystem);
+		inputRef.current?.blur(); // Hides keyboard after submit
 	}
 
 	function handleChangeUnitsSystem(event: React.ChangeEvent<HTMLInputElement>) {
@@ -68,6 +70,7 @@ export default function WeatherMenu(props: SearchProps) {
 						maxLength={60}
 						value={input}
 						onChange={(event) => handleInputChange(event.target.value)}
+						ref={inputRef}
 					/>
 				</form>
 				<LocationButton onClick={() => handleGetLocation()} aria-label="current-location">
