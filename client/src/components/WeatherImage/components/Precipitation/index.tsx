@@ -28,6 +28,7 @@ const Particle = (props: ParticleProps) => {
 interface PrecipitationProps {
 	type: number;
 	intensity: number;
+	windSpeed: number;
 }
 
 export default function Precipitation(props: PrecipitationProps) {
@@ -40,6 +41,9 @@ export default function Precipitation(props: PrecipitationProps) {
 	// Define fall duration in seconds
 	const particleFallDuration = particlesQuantity === 0 ? 0 : 1 / Math.pow(particlesQuantity, 1 / 5);
 
+	// Defines displacement based on windSpeed
+	const particleDisplacement = Math.min(500, Math.round(props.windSpeed ** 2 * 5));
+
 	return (
 		<PrecipitationContainer>
 			{Array.from({ length: particlesQuantity }).map((_, index) => {
@@ -50,6 +54,7 @@ export default function Precipitation(props: PrecipitationProps) {
 						particleWidth={particleWidth}
 						particleFallDuration={particleFallDuration}
 						particleRandomDelay={particleRandomDelay}
+						particleDisplacement={particleDisplacement}
 						index={index}
 					>
 						<Particle type={props.type} />
