@@ -37,7 +37,7 @@ export default function WeatherImage() {
 
 		// Assign precipitation values
 		precipitationType = data.interval.values.precipitationType;
-		precipitationIntensity = data.interval.values.precipitationIntensity;
+		precipitationIntensity = cloudCover >= 10 ? data.interval.values.precipitationIntensity : 0;
 
 		windSpeed = data.interval.values.windSpeed;
 	}
