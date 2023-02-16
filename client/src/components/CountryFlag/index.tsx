@@ -9,7 +9,7 @@ interface FlagProps {
 
 export default function CountryFlag(props: FlagProps) {
 	const BASE_URL = "https://flagsapi.com";
-	const url = `${BASE_URL}/${props.country}/shiny/32.png`;
+	const url = `${BASE_URL}/${props.country}/shiny/64.png`;
 
 	return (
 		<FlagContainer size={props.size}>
