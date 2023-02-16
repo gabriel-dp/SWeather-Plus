@@ -2,20 +2,21 @@ import styled from "styled-components";
 
 export const Screen = styled.div`
 	width: 100%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
+	height: 100svh;
 `;
 
 export const MainWeatherWrapper = styled.div`
 	width: 100%;
+	height: 100%;
 	padding: 1rem;
-	overflow-y: scroll;
+	padding-top: 5svh;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 1rem;
 
+	overflow-y: scroll;
 	scrollbar-width: none;
 	::-webkit-scrollbar {
 		width: 0;
@@ -24,5 +25,5 @@ export const MainWeatherWrapper = styled.div`
 `;
 
 export const WeatherImageContainer = styled.div`
-	width: 80%;
+	width: 75%;
 `;
