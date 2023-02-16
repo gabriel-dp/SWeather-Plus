@@ -62,7 +62,7 @@ export default function WeatherMenu(props: SearchProps) {
 				<SearchIconContainer>
 					<FaSearch />
 				</SearchIconContainer>
-				<form onSubmit={(event) => handleSubmitInput(event)} autoComplete="off">
+				<form onSubmit={(event) => handleSubmitInput(event)}>
 					<SearchInput
 						placeholder="Search a city"
 						maxLength={60}

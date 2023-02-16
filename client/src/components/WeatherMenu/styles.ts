@@ -83,7 +83,9 @@ export const SearchIconContainer = styled.div`
 
 export const SearchInput = styled.input.attrs({
 	type: "text",
-	autoComplete: "new-password", // disable passwords and other autoComplete services
+	id: "search",
+	name: "city",
+	autoComplete: "none",
 })`
 	width: 100%;
 	height: 100%;
