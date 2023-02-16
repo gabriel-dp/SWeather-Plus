@@ -9,7 +9,7 @@ import TimeSlider from "@/components/TimeSlider";
 import WeatherImage from "@/components/WeatherImage";
 import WeatherMenu from "@/components/WeatherMenu";
 
-import { Screen, MainWeatherWrapper } from "./styles";
+import { Screen, MainWeatherWrapper, WeatherImageContainer } from "./styles";
 
 export default function Home() {
 	const range = 6;
@@ -28,7 +28,9 @@ export default function Home() {
 				<WeatherBackground>
 					<MainWeatherWrapper>
 						<MainWeatherData>
-							<WeatherImage />
+							<WeatherImageContainer>
+								<WeatherImage />
+							</WeatherImageContainer>
 							<TimeDisplay />
 							<TimeSlider range={range} interval={interval} setInterval={setInterval} />
 						</MainWeatherData>

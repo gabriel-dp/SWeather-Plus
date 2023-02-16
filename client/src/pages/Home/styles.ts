@@ -22,3 +22,7 @@ export const MainWeatherWrapper = styled.div`
 		background-color: transparent;
 	}
 `;
+
+export const WeatherImageContainer = styled.div`
+	width: 80%;
+`;
