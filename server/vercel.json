@@ -1,15 +1,17 @@
 {
+	"name": "sweather-plus-api",
 	"version": 2,
+	"public": true,
 	"builds": [
 		{
-			"src": "*.js",
+			"src": "src/index.ts",
 			"use": "@vercel/node"
 		}
 	],
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "/"
+			"dest": "/src/index.ts"
 		}
 	]
 }
