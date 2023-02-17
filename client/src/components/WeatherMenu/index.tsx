@@ -71,8 +71,6 @@ export default function WeatherMenu(props: SearchProps) {
 						value={input}
 						onChange={(event) => handleInputChange(event.target.value)}
 						ref={inputRef}
-						aria-autocomplete="none"
-						autoComplete="off"
 					/>
 				</form>
 				<LocationButton onClick={() => handleGetLocation()} aria-label="current-location">
