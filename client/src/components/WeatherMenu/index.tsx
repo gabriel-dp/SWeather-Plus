@@ -1,5 +1,5 @@
 import { useState, useContext, useRef } from "react";
-import { FaSearch, FaMapMarkerAlt } from "react-icons/fa";
+import { FaSearch, FaMapMarkerAlt, FaChevronRight } from "react-icons/fa";
 
 import { DataContext, searchType, unitsSystemType } from "@/utils/dataTypes";
 import getGeolocationCoords from "@/utils/getGeolocationCoords";
@@ -26,15 +26,29 @@ export default function WeatherMenu(props: SearchProps) {
 	const [selectedUnitsSystem, setSelectedUnitsSystem] = useState<unitsSystemType>("metric");
 	const inputRef = useRef<HTMLInputElement>(null);
 
+	function handleChangeUnitsSystem(event: React.ChangeEvent<HTMLInputElement>) {
+		const value = event.target.value as unitsSystemType;
+		setSelectedUnitsSystem(value);
+	}
+
 	function handleInputChange(input: string) {
 		setInput(input);
 	}
 
-	async function handleGetLocation() {
-		const coords = await getGeolocationCoords();
-		if (coords.length === 2) props.setSearch(coords);
-		else console.error("GEOLOCATION UNAVALIABLE");
+	async function handleButtonClick() {
 		props.setUnitSystem(selectedUnitsSystem);
+		if (input === "") {
+			const coords = await getGeolocationCoords();
+			if (coords.length === 2) {
+				props.setSearch(coords);
+			} else {
+				console.error("GEOLOCATION UNAVALIABLE");
+				return;
+			}
+		} else {
+			props.setSearch(input);
+			setInput("");
+		}
 	}
 
 	function handleSubmitInput(event: React.FormEvent<HTMLFormElement>) {
@@ -43,11 +57,6 @@ export default function WeatherMenu(props: SearchProps) {
 		props.setSearch(input);
 		setInput("");
 		inputRef.current?.blur(); // Hides keyboard after submit
-	}
-
-	function handleChangeUnitsSystem(event: React.ChangeEvent<HTMLInputElement>) {
-		const value = event.target.value as unitsSystemType;
-		setSelectedUnitsSystem(value);
 	}
 
 	const { localData } = useContext(DataContext);
@@ -73,8 +82,8 @@ export default function WeatherMenu(props: SearchProps) {
 						ref={inputRef}
 					/>
 				</form>
-				<LocationButton onClick={() => handleGetLocation()} aria-label="current-location">
-					<FaMapMarkerAlt />
+				<LocationButton onClick={() => handleButtonClick()}>
+					{input === "" ? <FaMapMarkerAlt /> : <FaChevronRight />}
 				</LocationButton>
 			</InputContainer>
 			<OptionsContainer hidden={props.unitsSystem !== null} size={1.5}>

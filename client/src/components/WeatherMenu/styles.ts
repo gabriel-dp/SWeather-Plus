@@ -99,7 +99,9 @@ export const SearchInput = styled.input.attrs({
 	z-index: 2;
 `;
 
-export const LocationButton = styled.button`
+export const LocationButton = styled.button.attrs({
+	"aria-label": "GetLocation-SubmitInput",
+})`
 	aspect-ratio: 1;
 	height: 100%;
 	border: none;
