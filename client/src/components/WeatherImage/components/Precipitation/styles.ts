@@ -30,11 +30,13 @@ const particleAnimation = (translationX: number) => keyframes`
 `;
 
 export const ParticleContainer = styled.div<ParticleProps>`
-	height: 1rem;
+	width: 15%;
 	aspect-ratio: 1;
 	position: absolute;
 	left: ${(props) => props.particleWidth * props.index + props.particleWidth / 2}%;
 	bottom: 100%;
+
+	// border: 1px solid red;
 
 	animation: ${(props) => particleAnimation(props.particleDisplacement)} ${(props) => props.particleFallDuration}s
 		ease-in infinite;
