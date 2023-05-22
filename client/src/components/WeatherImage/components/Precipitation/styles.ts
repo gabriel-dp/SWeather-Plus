@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 export const PrecipitationContainer = styled.div`
 	height: 100%;
 	width: 100%;
-	//border: 1px solid yellow;
 	position: relative;
 
 	display: flex;
@@ -35,8 +34,6 @@ export const ParticleContainer = styled.div<ParticleProps>`
 	position: absolute;
 	left: ${(props) => props.particleWidth * props.index + props.particleWidth / 2}%;
 	bottom: 100%;
-
-	// border: 1px solid red;
 
 	animation: ${(props) => particleAnimation(props.particleDisplacement)} ${(props) => props.particleFallDuration}s
 		ease-in infinite;
