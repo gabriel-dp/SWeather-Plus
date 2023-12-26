@@ -1,8 +1,12 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-interface SliderProps {
-	isActive: boolean;
-}
+const shakeAnimation = keyframes`
+  0% { transform: translateX(0); }
+  6.25% {transform: translateX(0.15rem)}
+  12.5% { transform: translateX(-0.15rem); }
+  18.75% { transform: translateX(0.15rem); }
+  25% { transform: translateX(0); }
+`;
 
 const thumbStyle = (isActive: boolean) => `
 	-webkit-appearance: none;
@@ -16,13 +20,19 @@ const thumbStyle = (isActive: boolean) => `
 	cursor: ${isActive ? "ew-resize" : "default"};
 	opacity: ${isActive ? "1" : "0"};
 	transition: all 0.25s ease-in-out;
+	animation-delay: 2s;
 `;
+
+interface SliderProps {
+	isActive: boolean;
+}
 
 export const CustomSlider = styled.input.attrs({
 	type: "range",
 })<SliderProps>`
+	appearance: none;
 	-webkit-appearance: none;
-	width: ${(props) => (props.isActive ? "min(100%, 15rem)" : "0")};
+	width: ${(props) => (props.isActive ? "min(100%, 15rem)" : "1.5rem")};
 	height: 0.25rem;
 	background-color: #ddd;
 	border-radius: 0.35rem;
@@ -32,11 +42,14 @@ export const CustomSlider = styled.input.attrs({
 
 	::-webkit-slider-thumb {
 		${(props) => thumbStyle(props.isActive)}
+		animation: ${shakeAnimation} 3s ease-in-out infinite;
 	}
 	::-moz-range-thumb {
 		${(props) => thumbStyle(props.isActive)}
+		animation: ${shakeAnimation} 3s ease-in-out infinite;
 	}
 	::-ms-thumb {
 		${(props) => thumbStyle(props.isActive)}
+		animation: ${shakeAnimation} 3s ease-in-out infinite;
 	}
 `;
