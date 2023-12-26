@@ -1,4 +1,4 @@
-import { IDataContext, hourlyValues } from "@/utils/dataTypes";
+import { IDataContext, hourlyValues, unitSystemType } from "@/utils/dataTypes";
 
 const normalize = (measure: number, decimals: number, unit: string) => [measure.toFixed(decimals), unit].join("");
 
@@ -19,7 +19,7 @@ export class formattedWeatherData {
 		if (!this.interval) return normalize(0, 1, "º");
 
 		const celsiusTemperature = this.interval.values.temperature;
-		if (this.data.unitSystem === "metric") return normalize(celsiusTemperature, 1, "ºC");
+		if (this.data.unitSystem == unitSystemType.METRIC) return normalize(celsiusTemperature, 1, "ºC");
 
 		const fahrenheitTemperature = fahrenheit(celsiusTemperature);
 		return normalize(fahrenheitTemperature, 1, "ºF");
@@ -29,7 +29,7 @@ export class formattedWeatherData {
 		if (!this.interval) return normalize(0, 1, "");
 
 		const metricSpeed = this.interval.values.windSpeed;
-		if (this.data.unitSystem === "metric") return normalize(metricSpeed, 1, "m/s");
+		if (this.data.unitSystem == unitSystemType.METRIC) return normalize(metricSpeed, 1, "m/s");
 
 		const imperialSpeed = milesPerHour(metricSpeed);
 		return normalize(imperialSpeed, 1, "mph");

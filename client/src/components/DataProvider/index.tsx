@@ -1,11 +1,11 @@
 import useLocalWeather from "@/hooks/useLocalWeather";
-import { DataContext, intervalType, searchType, unitsSystemType } from "@/utils/dataTypes";
+import { DataContext, intervalType, searchType, unitSystemType } from "@/utils/dataTypes";
 
 interface ProviderProps {
 	search: searchType;
 	range?: number;
 	interval?: number;
-	unitsSystem?: unitsSystemType;
+	unitsSystem: unitSystemType | null;
 	children: React.ReactNode;
 }
 
@@ -19,7 +19,7 @@ export default function DataProvider(props: ProviderProps) {
 	const providerValue = {
 		localData: localData,
 		intervalData: intervalData,
-		unitSystem: props.unitsSystem ?? "metric",
+		unitSystem: props.unitsSystem,
 	};
 
 	return <DataContext.Provider value={providerValue}>{props.children}</DataContext.Provider>;

@@ -11,8 +11,6 @@ export default function TimeDisplay() {
 		? new Date(contextData.intervalData?.interval.startTime)
 		: new Date(new Date().setMinutes(0));
 
-	console.log();
-
 	const formattedTime = time.toLocaleTimeString(navigator.languages[0], {
 		hour: "2-digit",
 		minute: "2-digit",

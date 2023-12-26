@@ -46,7 +46,10 @@ export type intervalType = {
 
 export type searchType = string | [number, number];
 
-export type unitsSystemType = "metric" | "imperial" | null;
+export enum unitSystemType {
+	METRIC,
+	IMPERIAL,
+}
 
 export enum particles {
 	rain = 1,
@@ -58,11 +61,11 @@ export enum particles {
 export interface IDataContext {
 	intervalData: intervalType;
 	localData: localType;
-	unitSystem: unitsSystemType;
+	unitSystem: unitSystemType | null;
 }
 
 export const DataContext = createContext<IDataContext>({
 	intervalData: { status: false } as intervalType,
 	localData: { status: false } as localType,
-	unitSystem: "metric",
+	unitSystem: null,
 });

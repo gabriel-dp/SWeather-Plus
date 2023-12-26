@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { searchType, unitsSystemType } from "@/utils/dataTypes";
+import { searchType, unitSystemType } from "@/utils/dataTypes";
 import DataProvider from "@/components/DataProvider";
 import WeatherBackground from "@/components/WeatherBackground";
 import MainWeatherData from "@/components/MainWeatherData";
@@ -13,7 +13,7 @@ import { Screen, MainWeatherWrapper, WeatherImageContainer } from "./styles";
 
 export default function Home() {
 	const range = 6;
-	const [unitsSystem, setUnitsSystem] = useState<unitsSystemType>(null);
+	const [unitsSystem, setUnitsSystem] = useState<unitSystemType | null>(null);
 
 	const [interval, setInterval] = useState(range);
 	const [search, setSearch] = useState<searchType>("");

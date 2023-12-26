@@ -1,7 +1,7 @@
 import { useState, useContext, useRef } from "react";
 import { FaSearch, FaMapMarkerAlt, FaChevronRight } from "react-icons/fa";
 
-import { DataContext, searchType, unitsSystemType } from "@/utils/dataTypes";
+import { DataContext, searchType, unitSystemType } from "@/utils/dataTypes";
 import getGeolocationCoords from "@/utils/getGeolocationCoords";
 import CountryFlag from "@/components/CountryFlag";
 
@@ -17,18 +17,17 @@ import {
 
 interface SearchProps {
 	setSearch: React.Dispatch<React.SetStateAction<searchType>>;
-	unitsSystem: unitsSystemType;
-	setUnitSystem: React.Dispatch<React.SetStateAction<unitsSystemType>>;
+	unitsSystem: unitSystemType | null;
+	setUnitSystem: React.Dispatch<React.SetStateAction<unitSystemType | null>>;
 }
 
 export default function WeatherMenu(props: SearchProps) {
 	const [input, setInput] = useState("");
-	const [selectedUnitsSystem, setSelectedUnitsSystem] = useState<unitsSystemType>("metric");
 	const inputRef = useRef<HTMLInputElement>(null);
+	const [selectedSystem, setSelectedSystem] = useState<unitSystemType>(unitSystemType.METRIC);
 
 	function handleChangeUnitsSystem(event: React.ChangeEvent<HTMLInputElement>) {
-		const value = event.target.value as unitsSystemType;
-		setSelectedUnitsSystem(value);
+		setSelectedSystem(parseInt(event.target.value));
 	}
 
 	function handleInputChange(input: string) {
@@ -36,7 +35,7 @@ export default function WeatherMenu(props: SearchProps) {
 	}
 
 	async function handleButtonClick() {
-		props.setUnitSystem(selectedUnitsSystem);
+		props.setUnitSystem(selectedSystem);
 		if (input === "") {
 			const coords = await getGeolocationCoords();
 			if (coords.length === 2) {
@@ -53,7 +52,7 @@ export default function WeatherMenu(props: SearchProps) {
 
 	function handleSubmitInput(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-		props.setUnitSystem(selectedUnitsSystem);
+		props.setUnitSystem(selectedSystem);
 		props.setSearch(input);
 		setInput("");
 		inputRef.current?.blur(); // Hides keyboard after submit
@@ -93,8 +92,8 @@ export default function WeatherMenu(props: SearchProps) {
 							type="radio"
 							id="metric"
 							name="unit"
-							checked={selectedUnitsSystem === "metric"}
-							value="metric"
+							checked={selectedSystem == unitSystemType.METRIC}
+							value={unitSystemType.METRIC}
 							onChange={(e) => handleChangeUnitsSystem(e)}
 						></input>
 						<label htmlFor="metric">(ºC | m/s)</label>
@@ -104,8 +103,8 @@ export default function WeatherMenu(props: SearchProps) {
 							type="radio"
 							id="imperial"
 							name="unit"
-							checked={selectedUnitsSystem === "imperial"}
-							value="imperial"
+							checked={selectedSystem == unitSystemType.IMPERIAL}
+							value={unitSystemType.IMPERIAL}
 							onChange={(e) => handleChangeUnitsSystem(e)}
 						></input>
 						<label htmlFor="imperial">(ºF | mph)</label>
