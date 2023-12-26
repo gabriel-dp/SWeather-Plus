@@ -50,19 +50,19 @@ Using TypeScript with React and Express, the new app is better for the user and 
 
 ## ✨ Features
 
-- Search weather by name of any city in the world or by user location
+- 🔍 Search weather by name of any city in the world or by user location
 
-- Time slider to see the weather for the day [-6h in the past, +6h in the future]
+- 🎚 Time slider to see the weather for the day [-6h in the past, +6h in the future]
 
-- Day/Night animations with moonphases
+- 🌙 Day/Night animations with moonphases
 
-- Precipitation animations (Rain, FreezingRain, Sleets and Snow)
+- 🌧 Precipitation animations (Rain, Freezing Rain, Sleets and Snow)
 
 &nbsp;
 
 ## ⚙️ APIs
 
-This is a non-commercial and non-profit project, all data used is aimed at learning more about APIs usage and FrontEnd development.
+This is a non-commercial and non-profit project, all data used is aimed at learning more about APIs usage and Front-end development.
 
 ### ⛅ Weather
 
@@ -77,3 +77,21 @@ All weather data comes from **_Tomorrow.io_**, a great Weather API.
 The location data is provided by **_OpenWeather_**.
 
 > [Access the official website](https://openweathermap.org/)
+
+&nbsp;
+
+## 🖥️ Running the project
+
+As said before, this app uses two public APIs do get data from local and weather, so you must have the keys and provide them to the server using a `.env` in `server` folder:
+
+```env
+PORT=8080
+TOMORROWIO_API_KEY="~"
+OPENWEATHER_API_KEY="~"
+```
+
+The client needs to know the URL to request data. This is also provided using a `.env`, but in `client` folder:
+
+```env
+VITE_API_URL="http://localhost:8080"
+```
