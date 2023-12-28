@@ -33,5 +33,5 @@ export const DataGroup = styled.div`
 	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
-	column-gap: 1rem;
+	column-gap: 0.75rem;
 `;

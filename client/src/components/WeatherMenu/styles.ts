@@ -4,7 +4,7 @@ export const SearchContainer = styled.div`
 	width: min(100%, 30rem);
 	background-color: ${(props) => props.theme.ui.searchContainer}aa;
 	border: 1px solid ${(props) => props.theme.ui.searchContainer};
-	border-radius: 1rem;
+	border-radius: 0.75rem;
 	padding: 1rem;
 
 	display: flex;
@@ -115,6 +115,10 @@ export const LocationButton = styled.button.attrs({
 	position: absolute;
 	right: 0;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	:hover {
 		background-color: ${(props) => props.theme.ui.buttonHover};
 	}
@@ -140,12 +144,20 @@ export const OptionsContainer = styled.div<HiddableContainerProps>`
 		justify-content: space-evenly;
 		white-space: nowrap;
 
-		label {
-			margin-left: 0.5rem;
+		div {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
 		}
 
-		input {
-			transform: translateY(0.1rem);
+		label {
+			margin-left: 0.5rem;
+			font-size: 0.9rem;
+		}
+
+		input[type="radio"] {
+			accent-color: ${(props) => props.theme.ui.button};
 		}
 	}
 `;

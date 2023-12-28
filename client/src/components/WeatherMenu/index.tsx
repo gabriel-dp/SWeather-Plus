@@ -96,7 +96,7 @@ export default function WeatherMenu(props: SearchProps) {
 							value={unitSystemType.METRIC}
 							onChange={(e) => handleChangeUnitsSystem(e)}
 						></input>
-						<label htmlFor="metric">(ºC | m/s)</label>
+						<label htmlFor="metric">Metric (°C)</label>
 					</div>
 					<div>
 						<input
@@ -107,7 +107,7 @@ export default function WeatherMenu(props: SearchProps) {
 							value={unitSystemType.IMPERIAL}
 							onChange={(e) => handleChangeUnitsSystem(e)}
 						></input>
-						<label htmlFor="imperial">(ºF | mph)</label>
+						<label htmlFor="imperial">Imperial (°F)</label>
 					</div>
 				</div>
 			</OptionsContainer>

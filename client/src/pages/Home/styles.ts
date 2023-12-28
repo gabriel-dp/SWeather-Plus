@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Screen = styled.div`
 	width: 100%;
-	height: 100svh;
+	height: 100dvh;
 `;
 
 export const MainWeatherWrapper = styled.div`
 	width: 100%;
 	height: 100%;
-	padding: 1rem;
-	padding-top: 5svh;
+	padding: 1.5rem;
+	padding-top: 3rem;
 
 	display: flex;
 	flex-direction: column;
