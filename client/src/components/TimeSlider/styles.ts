@@ -42,14 +42,17 @@ export const CustomSlider = styled.input.attrs({
 
 	::-webkit-slider-thumb {
 		${(props) => thumbStyle(props.isActive)}
+		-webkit-animation: ${shakeAnimation} 3s ease-in-out infinite;
 		animation: ${shakeAnimation} 3s ease-in-out infinite;
 	}
 	::-moz-range-thumb {
 		${(props) => thumbStyle(props.isActive)}
+		-moz-animation: ${shakeAnimation} 3s ease-in-out infinite;
 		animation: ${shakeAnimation} 3s ease-in-out infinite;
 	}
 	::-ms-thumb {
 		${(props) => thumbStyle(props.isActive)}
+		-ms-animation: ${shakeAnimation} 3s ease-in-out infinite;
 		animation: ${shakeAnimation} 3s ease-in-out infinite;
 	}
 `;
