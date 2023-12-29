@@ -17,6 +17,8 @@
     &nbsp;
     <img height=30 src='https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white'>
     &nbsp;
+    <img height=30 src='https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white%'>
+    &nbsp;
     <img height=30 src='https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white'>
 </p>
 
@@ -57,6 +59,8 @@ Using TypeScript with React and Express, the new app is better for the user and 
 - 🌙 Day/Night animations with moonphases
 
 - 🌧 Precipitation animations (Rain, Freezing Rain, Sleets and Snow)
+
+- 📲 PWA (Progressive Web App) support
 
 &nbsp;
 
