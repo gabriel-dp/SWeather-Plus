@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaRegTimesCircle } from "react-icons/fa";
 
 export const SearchContainer = styled.div`
 	width: min(100%, 30rem);
@@ -164,12 +165,18 @@ export const OptionsContainer = styled.div<HiddableContainerProps>`
 `;
 
 export const LoadingContainer = styled.div<HiddableContainerProps>`
-	height: ${(props) => (props.ishidden ? "0" : props.size)}rem;
+	height: ${(props) => (props.ishidden ? 0 : props.size)}rem;
 	aspect-ratio: 1;
 	overflow: hidden;
 	transition: all 0.5s ease;
+	margin-bottom: ${(props) => (props.ishidden ? 0 : 0.5)}rem;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
+`;
+
+export const ErrorIcon = styled(FaRegTimesCircle)`
+	font-size: 2.5rem;
+	color: ${(props) => props.theme.ui.button};
 `;

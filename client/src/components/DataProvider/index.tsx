@@ -15,7 +15,7 @@ export default function DataProvider(props: ProviderProps) {
 	const intervalData: intervalType =
 		weatherData.status == FetchStatus.SUCCESS
 			? { status: FetchStatus.SUCCESS, interval: weatherData.hourlyData[props.interval ?? 0], day: weatherData.dailyData }
-			: ({ status: FetchStatus.ERROR } as intervalType);
+			: ({ status: weatherData.status } as intervalType);
 
 	const providerValue = {
 		localData: localData,

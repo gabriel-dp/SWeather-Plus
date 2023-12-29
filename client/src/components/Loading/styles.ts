@@ -6,7 +6,7 @@ const spin = keyframes`
 
 export const LoadingSymbol = styled.div`
 	border: 0.25rem solid transparent;
-	border-top-color: ${(props) => props.theme.ui.textDark};
+	border-top-color: ${(props) => props.theme.ui.button};
 	border-radius: 50%;
 	width: 2rem;
 	height: 2rem;

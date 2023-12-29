@@ -1,4 +1,4 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { FaSearch, FaMapMarkerAlt, FaChevronRight } from "react-icons/fa";
 
 import { DataContext, FetchStatus, searchType, unitSystemType } from "@/utils/dataTypes";
@@ -15,6 +15,7 @@ import {
 	LocationButton,
 	OptionsContainer,
 	LoadingContainer,
+	ErrorIcon,
 } from "./styles";
 
 interface SearchProps {
@@ -60,12 +61,22 @@ export default function WeatherMenu(props: SearchProps) {
 		inputRef.current?.blur(); // Hides keyboard after submit
 	}
 
-	const { localData } = useContext(DataContext);
+	const { localData, intervalData } = useContext(DataContext);
+
+	useEffect(() => {
+		console.log(FetchStatus[localData.status], FetchStatus[intervalData.status]);
+	}, [localData, intervalData]);
 
 	return (
 		<SearchContainer>
 			<LoadingContainer ishidden={localData.status != FetchStatus.LOADING} size={4}>
 				<Loading />
+			</LoadingContainer>
+			<LoadingContainer
+				ishidden={localData.status != FetchStatus.ERROR && intervalData.status != FetchStatus.ERROR}
+				size={4}
+			>
+				<ErrorIcon />
 			</LoadingContainer>
 			<LocalInfoContainer ishidden={localData.status != FetchStatus.SUCCESS} size={4}>
 				<div className="city">
