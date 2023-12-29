@@ -1,5 +1,5 @@
 import fetchData from "@/utils/fetchData";
-import { localType } from "@/utils/dataTypes";
+import { FetchStatus, localType } from "@/utils/dataTypes";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -11,17 +11,17 @@ const localByCoordsUrl = (location: [number, number]) =>
 export async function getLocalDataByCity(name: string) {
 	try {
 		const localData: localType = await fetchData(localByCityUrl(name), "Cannot get local");
-		return { ...localData, status: true };
+		return { ...localData, status: FetchStatus.SUCCESS };
 	} catch {
-		return { status: false } as localType;
+		return { status: FetchStatus.ERROR } as localType;
 	}
 }
 
 export async function getLocalDataByCoords(location: [number, number]) {
 	try {
 		const localData: localType = await fetchData(localByCoordsUrl(location), "Cannot get local");
-		return { ...localData, status: true };
+		return { ...localData, status: FetchStatus.SUCCESS };
 	} catch {
-		return { status: false } as localType;
+		return { status: FetchStatus.ERROR } as localType;
 	}
 }

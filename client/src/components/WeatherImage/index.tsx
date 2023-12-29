@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { DataContext } from "@/utils/dataTypes";
+import { DataContext, FetchStatus } from "@/utils/dataTypes";
 import { isTimeDay } from "@/utils/timeUtils";
 import SunMoon from "./components/SunMoon";
 import Cloud from "./components/Cloud";
@@ -19,7 +19,7 @@ export default function WeatherImage() {
 		precipitationIntensity = 0,
 		windSpeed = 0;
 
-	if (data.status) {
+	if (data.status == FetchStatus.SUCCESS) {
 		// Controls Cloud and Sun/Moon size
 		const { cloudCover } = data.interval.values;
 		if (cloudCover < 10) {

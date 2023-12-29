@@ -22,14 +22,21 @@ export type dailyType = {
 	sunsetTime: string;
 };
 
+export enum FetchStatus {
+	IDLE,
+	LOADING,
+	SUCCESS,
+	ERROR,
+}
+
 export type weatherType = {
-	status: boolean;
+	status: FetchStatus;
 	dailyData: dailyType;
 	hourlyData: hourlyType;
 };
 
 export type localType = {
-	status: boolean;
+	status: FetchStatus;
 	name: string;
 	lat: number;
 	lon: number;
@@ -39,7 +46,7 @@ export type localType = {
 };
 
 export type intervalType = {
-	status: boolean;
+	status: FetchStatus;
 	interval: hourlyValues;
 	day: dailyType;
 };
@@ -65,7 +72,7 @@ export interface IDataContext {
 }
 
 export const DataContext = createContext<IDataContext>({
-	intervalData: { status: false } as intervalType,
-	localData: { status: false } as localType,
+	intervalData: { status: FetchStatus.IDLE } as intervalType,
+	localData: { status: FetchStatus.IDLE } as localType,
 	unitSystem: null,
 });

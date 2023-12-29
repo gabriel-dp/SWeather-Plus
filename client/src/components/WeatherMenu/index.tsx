@@ -1,9 +1,10 @@
 import { useState, useContext, useRef } from "react";
 import { FaSearch, FaMapMarkerAlt, FaChevronRight } from "react-icons/fa";
 
-import { DataContext, searchType, unitSystemType } from "@/utils/dataTypes";
+import { DataContext, FetchStatus, searchType, unitSystemType } from "@/utils/dataTypes";
 import getGeolocationCoords from "@/utils/getGeolocationCoords";
 import CountryFlag from "@/components/CountryFlag";
+import Loading from "@/components/Loading";
 
 import {
 	SearchContainer,
@@ -13,6 +14,7 @@ import {
 	SearchInput,
 	LocationButton,
 	OptionsContainer,
+	LoadingContainer,
 } from "./styles";
 
 interface SearchProps {
@@ -36,7 +38,7 @@ export default function WeatherMenu(props: SearchProps) {
 
 	async function handleButtonClick() {
 		props.setUnitSystem(selectedSystem);
-		if (input === "") {
+		if (input == "") {
 			const coords = await getGeolocationCoords();
 			if (coords.length === 2) {
 				props.setSearch(coords);
@@ -62,7 +64,10 @@ export default function WeatherMenu(props: SearchProps) {
 
 	return (
 		<SearchContainer>
-			<LocalInfoContainer hidden={!localData.status} size={4}>
+			<LoadingContainer ishidden={localData.status != FetchStatus.LOADING} size={4}>
+				<Loading />
+			</LoadingContainer>
+			<LocalInfoContainer ishidden={localData.status != FetchStatus.SUCCESS} size={4}>
 				<div className="city">
 					<p>{localData.name}</p>
 				</div>
@@ -85,7 +90,7 @@ export default function WeatherMenu(props: SearchProps) {
 					{input === "" ? <FaMapMarkerAlt /> : <FaChevronRight />}
 				</LocationButton>
 			</InputContainer>
-			<OptionsContainer hidden={props.unitsSystem !== null} size={1.5}>
+			<OptionsContainer ishidden={props.unitsSystem !== null} size={1.5}>
 				<div className="units">
 					<div>
 						<input

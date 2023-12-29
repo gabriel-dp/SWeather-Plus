@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { DataContext } from "@/utils/dataTypes";
+import { DataContext, FetchStatus } from "@/utils/dataTypes";
 import { isTimeDay } from "@/utils/timeUtils";
 
 import { Background } from "./styles";
@@ -18,11 +18,12 @@ const grayScaleCoefficient = (cloudCover: number) =>
 export default function WeatherBackground(props: BackgroundProps) {
 	const data = useContext(DataContext).intervalData;
 
-	const brightness = data.status
-		? brightnessCoefficient(data.interval.startTime, data.day.sunriseTime, data.day.sunsetTime)
-		: 100;
+	const brightness =
+		data.status == FetchStatus.SUCCESS
+			? brightnessCoefficient(data.interval.startTime, data.day.sunriseTime, data.day.sunsetTime)
+			: 100;
 
-	const grayscale = data.status ? grayScaleCoefficient(data.interval.values.cloudCover) : 0;
+	const grayscale = data.status == FetchStatus.SUCCESS ? grayScaleCoefficient(data.interval.values.cloudCover) : 0;
 
 	return (
 		<Background brightness={brightness} grayscale={grayscale}>

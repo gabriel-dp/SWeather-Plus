@@ -1,5 +1,5 @@
 import useLocalWeather from "@/hooks/useLocalWeather";
-import { DataContext, intervalType, searchType, unitSystemType } from "@/utils/dataTypes";
+import { DataContext, FetchStatus, intervalType, searchType, unitSystemType } from "@/utils/dataTypes";
 
 interface ProviderProps {
 	search: searchType;
@@ -12,9 +12,10 @@ interface ProviderProps {
 export default function DataProvider(props: ProviderProps) {
 	const { localData, weatherData } = useLocalWeather(props.search, props.range ?? 0);
 
-	const intervalData: intervalType = weatherData.status
-		? { status: true, interval: weatherData.hourlyData[props.interval ?? 0], day: weatherData.dailyData }
-		: ({ status: false } as intervalType);
+	const intervalData: intervalType =
+		weatherData.status == FetchStatus.SUCCESS
+			? { status: FetchStatus.SUCCESS, interval: weatherData.hourlyData[props.interval ?? 0], day: weatherData.dailyData }
+			: ({ status: FetchStatus.ERROR } as intervalType);
 
 	const providerValue = {
 		localData: localData,

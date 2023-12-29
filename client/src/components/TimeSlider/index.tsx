@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { DataContext } from "@/utils/dataTypes";
+import { DataContext, FetchStatus } from "@/utils/dataTypes";
 
 import { CustomSlider } from "./styles";
 
@@ -31,7 +31,7 @@ function TimeSlider(props: SliderProps) {
 			step={1}
 			value={interval}
 			onChange={(event) => handleIntervalChange(event)}
-			isActive={intervalData.status && props.range > 0}
+			isActive={intervalData.status == FetchStatus.SUCCESS && props.range > 0}
 			aria-label="time-slider"
 		/>
 	);

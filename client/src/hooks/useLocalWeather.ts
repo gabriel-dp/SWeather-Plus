@@ -1,22 +1,19 @@
 import { useState, useEffect } from "react";
 
-import { localType, weatherType, searchType } from "@/utils/dataTypes";
+import { localType, weatherType, searchType, FetchStatus } from "@/utils/dataTypes";
 import { getLocalDataByCity, getLocalDataByCoords } from "@/utils/getLocalData";
 import { getWeatherData } from "@/utils/getWeatherData";
 
-const resetLocal = { status: false } as localType;
-const resetWeather = { status: false } as weatherType;
-
 export default function useLocalWeather(search: searchType, range: number) {
-	const [localData, setLocalData] = useState(resetLocal);
-	const [weatherData, setWeatherData] = useState(resetWeather);
+	const [localData, setLocalData] = useState({ status: FetchStatus.IDLE } as localType);
+	const [weatherData, setWeatherData] = useState({ status: FetchStatus.IDLE } as weatherType);
 
 	// Set localData if not previously set
 	useEffect(() => {
-		setLocalData(resetLocal);
-		setWeatherData(resetWeather);
+		if (typeof search == "string" && search.length == 0) return;
 
-		if (search === "") return;
+		setLocalData({ status: FetchStatus.LOADING } as localType);
+		setWeatherData({ status: FetchStatus.LOADING } as weatherType);
 
 		const setLocalDataAsync = async () =>
 			setLocalData(typeof search === "string" ? await getLocalDataByCity(search) : await getLocalDataByCoords(search));
@@ -25,7 +22,7 @@ export default function useLocalWeather(search: searchType, range: number) {
 
 	// Set weatherData if localData is ready and weatherData is not set
 	useEffect(() => {
-		if (!localData.status) return;
+		if (localData.status != FetchStatus.SUCCESS) return;
 
 		const location: [number, number] = [localData.lat, localData.lon];
 

@@ -9,17 +9,18 @@ export const SearchContainer = styled.div`
 
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 `;
 
 interface HiddableContainerProps {
-	hidden: boolean;
+	ishidden: boolean;
 	size: number;
 }
 
 export const LocalInfoContainer = styled.div<HiddableContainerProps>`
 	width: 100%;
-	height: ${(props) => (props.hidden ? "0" : props.size + 0.25)}rem;
-	margin-bottom: ${(props) => (props.hidden ? "0" : "0.75rem")};
+	height: ${(props) => (props.ishidden ? "0" : props.size)}rem;
+	margin-bottom: ${(props) => (props.ishidden ? "0" : "0.75rem")};
 	overflow: hidden;
 	transition: all 0.5s ease;
 
@@ -30,7 +31,7 @@ export const LocalInfoContainer = styled.div<HiddableContainerProps>`
 
 	.city {
 		transition: opacity 1.5s ease;
-		opacity: ${(props) => (props.hidden ? "0" : "1")};
+		opacity: ${(props) => (props.ishidden ? "0" : "1")};
 		width: 100%;
 		text-align: center;
 
@@ -127,9 +128,9 @@ export const LocationButton = styled.button.attrs({
 export const OptionsContainer = styled.div<HiddableContainerProps>`
 	width: 100%;
 	overflow: hidden;
-	height: ${(props) => (props.hidden ? 0 : props.size)}rem;
-	margin-top: ${(props) => (props.hidden ? "0" : "0.75rem")};
-	opacity: ${(props) => (props.hidden ? 0 : 1)};
+	height: ${(props) => (props.ishidden ? 0 : props.size)}rem;
+	margin-top: ${(props) => (props.ishidden ? "0" : "0.75rem")};
+	opacity: ${(props) => (props.ishidden ? 0 : 1)};
 	color: ${(props) => props.theme.ui.cityText};
 	transition: all 0.5s ease;
 
@@ -160,4 +161,15 @@ export const OptionsContainer = styled.div<HiddableContainerProps>`
 			accent-color: ${(props) => props.theme.ui.button};
 		}
 	}
+`;
+
+export const LoadingContainer = styled.div<HiddableContainerProps>`
+	height: ${(props) => (props.ishidden ? "0" : props.size)}rem;
+	aspect-ratio: 1;
+	overflow: hidden;
+	transition: all 0.5s ease;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
