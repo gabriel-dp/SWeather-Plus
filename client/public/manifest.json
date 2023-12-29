@@ -9,6 +9,11 @@
 		{
 			"src": "/logo.svg",
 			"sizes": "346x346",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "/logoMask.svg",
+			"sizes": "346x346",
 			"type": "image/svg+xml",
 			"purpose": "maskable"
 		},
