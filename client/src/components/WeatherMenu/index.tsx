@@ -63,10 +63,6 @@ export default function WeatherMenu(props: SearchProps) {
 
 	const { localData, intervalData } = useContext(DataContext);
 
-	useEffect(() => {
-		console.log(FetchStatus[localData.status], FetchStatus[intervalData.status]);
-	}, [localData, intervalData]);
-
 	return (
 		<SearchContainer>
 			<LoadingContainer ishidden={localData.status != FetchStatus.LOADING} size={4}>
