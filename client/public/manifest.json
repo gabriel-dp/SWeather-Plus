@@ -1,0 +1,26 @@
+{
+	"name": "SWeather-Plus",
+	"short_name": "SWeather+",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#008DF2",
+	"icons": [
+		{
+			"src": "/logo.svg",
+			"sizes": "346x346",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "/logoMask.svg",
+			"sizes": "346x346",
+			"type": "image/svg+xml",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/logo512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
