@@ -7,8 +7,8 @@ const fahrenheit = (celsius: number) => celsius * 1.8 + 32;
 const milesPerHour = (metersPerSec: number) => metersPerSec * 2.2369;
 
 export class formattedWeatherData {
-	data: IDataContext;
-	interval: hourlyValues;
+	private data: IDataContext;
+	private interval: hourlyValues;
 
 	constructor(data: IDataContext) {
 		this.data = data;
