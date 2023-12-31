@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const BadgeContainer = styled.label`
 	height: 2rem;
+	min-height: 2rem;
 	font-size: 0.9rem;
 	border-radius: 0.5rem;
 	overflow: hidden;
