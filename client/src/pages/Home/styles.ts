@@ -7,21 +7,15 @@ export const Screen = styled.div`
 
 export const MainWeatherWrapper = styled.div`
 	width: 100%;
-	height: 100%;
+	flex-grow: 1;
 	padding: 1.5rem;
 	padding-top: 3rem;
+	overflow-y: auto;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
-
-	overflow-y: scroll;
-	scrollbar-width: none;
-	::-webkit-scrollbar {
-		width: 0;
-		background-color: transparent;
-	}
 `;
 
 export const WeatherImageContainer = styled.div`

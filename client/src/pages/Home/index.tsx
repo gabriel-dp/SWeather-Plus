@@ -10,6 +10,7 @@ import WeatherImage from "@/components/WeatherImage";
 import WeatherMenu from "@/components/WeatherMenu";
 
 import { Screen, MainWeatherWrapper, WeatherImageContainer } from "./styles";
+import AuthorBadge from "@/components/AuthorBadge";
 
 export default function Home() {
 	const range = 6;
@@ -35,6 +36,7 @@ export default function Home() {
 							<TimeSlider range={range} interval={interval} setInterval={setInterval} />
 						</MainWeatherData>
 						<WeatherMenu setSearch={setSearch} unitsSystem={unitsSystem} setUnitSystem={setUnitsSystem} />
+						<AuthorBadge />
 					</MainWeatherWrapper>
 				</WeatherBackground>
 			</DataProvider>
