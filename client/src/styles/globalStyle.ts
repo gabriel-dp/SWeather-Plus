@@ -9,4 +9,9 @@ export default createGlobalStyle`
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         -webkit-tap-highlight-color: transparent;
     }
+
+    body {
+        touch-action: pan-y;
+        height: 100% 
+    }
 `;
