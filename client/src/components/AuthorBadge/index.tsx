@@ -6,7 +6,7 @@ export default function AuthorBadge() {
 	return (
 		<BadgeContainer>
 			<a href={link} target="_blank" rel="noreferrer">
-				Made by&nbsp; <span className="author">gabriel-dp</span>
+				<span>Made by</span>&nbsp;<span className="author">gabriel-dp</span>
 			</a>
 		</BadgeContainer>
 	);
