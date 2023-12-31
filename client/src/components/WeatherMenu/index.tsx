@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useEffect } from "react";
+import { useState, useContext, useRef } from "react";
 import { FaSearch, FaMapMarkerAlt, FaChevronRight } from "react-icons/fa";
 
 import { DataContext, FetchStatus, searchType, unitSystemType } from "@/utils/dataTypes";
